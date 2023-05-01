@@ -28,12 +28,11 @@ for i in range(len(races)):
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[10], line 8[0m
-[1;32m      6[0m race1, race2 [38;5;241m=[39m races[i], races[j]
-[1;32m      7[0m [38;5;28;01mif[39;00m race1 [38;5;241m!=[39m race2:
-[0;32m----> 8[0m     [38;5;28mprint[39m(race1, race2, scipy[38;5;241m.[39mstats[38;5;241m.[39mttest_ind([43mmultitest_ca[49m[multitest_ca[[38;5;124m"[39m[38;5;124mStratification1[39m[38;5;124m"[39m] [38;5;241m==[39m race1][[38;5;124m"[39m[38;5;124mDataValue[39m[38;5;124m"[39m],
-[1;32m      9[0m               multitest_ca[multitest_ca[[38;5;124m"[39m[38;5;124mStratification1[39m[38;5;124m"[39m] [38;5;241m==[39m race2][[38;5;124m"[39m[38;5;124mDataValue[39m[38;5;124m"[39m], axis[38;5;241m=[39m[38;5;241m0[39m, equal_var[38;5;241m=[39m[38;5;28;01mFalse[39;00m))
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[10], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m
+[1;32m      3[0m races [38;5;241m=[39m [[38;5;124m"[39m[38;5;124mBlack, non-Hispanic[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mWhite, non-Hispanic[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mHispanic[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mOther, non-Hispanic[39m[38;5;124m"[39m]
+[1;32m      4[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;28mlen[39m(races)):
 
-[0;31mNameError[0m: name 'multitest_ca' is not defined
+[0;31mModuleNotFoundError[0m: No module named 'scipy'
 

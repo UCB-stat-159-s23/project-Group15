@@ -653,6 +653,12 @@ Stat 159</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1852/2096028377.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+  opioid_annual = opioid_range.groupby([&#39;Year&#39;, &#39;State&#39;],as_index=False).mean()
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="gdp-data">
@@ -717,8 +723,6 @@ Stat 159</p>
       <th>Deaths</th>
       <th>Population</th>
       <th>Crude Rate</th>
-      <th>Crude Rate Lower 95% Confidence Interval</th>
-      <th>Crude Rate Upper 95% Confidence Interval</th>
       <th>Prescriptions Dispensed by US Retailers in that year (millions)</th>
     </tr>
   </thead>
@@ -733,8 +737,6 @@ Stat 159</p>
       <td>194.0</td>
       <td>4779736.0</td>
       <td>4.1</td>
-      <td>3.5</td>
-      <td>4.6</td>
       <td>210.0</td>
     </tr>
     <tr>
@@ -747,8 +749,6 @@ Stat 159</p>
       <td>180.0</td>
       <td>4802740.0</td>
       <td>3.7</td>
-      <td>3.2</td>
-      <td>4.3</td>
       <td>219.0</td>
     </tr>
     <tr>
@@ -761,8 +761,6 @@ Stat 159</p>
       <td>175.0</td>
       <td>4822023.0</td>
       <td>3.6</td>
-      <td>3.1</td>
-      <td>4.2</td>
       <td>217.0</td>
     </tr>
     <tr>
@@ -775,8 +773,6 @@ Stat 159</p>
       <td>175.0</td>
       <td>4833722.0</td>
       <td>3.6</td>
-      <td>3.1</td>
-      <td>4.2</td>
       <td>207.0</td>
     </tr>
     <tr>
@@ -789,14 +785,10 @@ Stat 159</p>
       <td>282.0</td>
       <td>4849377.0</td>
       <td>5.8</td>
-      <td>5.1</td>
-      <td>6.5</td>
       <td>196.0</td>
     </tr>
     <tr>
       <th>...</th>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -817,8 +809,6 @@ Stat 159</p>
       <td>49.0</td>
       <td>563626.0</td>
       <td>8.7</td>
-      <td>6.4</td>
-      <td>11.5</td>
       <td>210.0</td>
     </tr>
     <tr>
@@ -831,8 +821,6 @@ Stat 159</p>
       <td>47.0</td>
       <td>568158.0</td>
       <td>8.3</td>
-      <td>6.1</td>
-      <td>11.0</td>
       <td>219.0</td>
     </tr>
     <tr>
@@ -845,8 +833,6 @@ Stat 159</p>
       <td>47.0</td>
       <td>576412.0</td>
       <td>8.2</td>
-      <td>6.0</td>
-      <td>10.8</td>
       <td>217.0</td>
     </tr>
     <tr>
@@ -859,8 +845,6 @@ Stat 159</p>
       <td>52.0</td>
       <td>582658.0</td>
       <td>8.9</td>
-      <td>6.7</td>
-      <td>11.7</td>
       <td>207.0</td>
     </tr>
     <tr>
@@ -873,13 +857,11 @@ Stat 159</p>
       <td>57.0</td>
       <td>584153.0</td>
       <td>9.8</td>
-      <td>7.4</td>
-      <td>12.6</td>
       <td>196.0</td>
     </tr>
   </tbody>
 </table>
-<p>251 rows × 11 columns</p>
+<p>251 rows × 9 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -922,7 +904,7 @@ Stat 159</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0d5d507419fa7cefca57eaaa097512e6ac0457f7a113a6982568b10c2ee2e7fd.png" src="_images/0d5d507419fa7cefca57eaaa097512e6ac0457f7a113a6982568b10c2ee2e7fd.png" />
+<img alt="_images/2a619e99ca2d01ce6bfc28486cd965c739b364f9abac35be802ddab0dc8c059d.png" src="_images/2a619e99ca2d01ce6bfc28486cd965c739b364f9abac35be802ddab0dc8c059d.png" />
 </div>
 </div>
 <p>From the visualization above, we can obviously see that some states have significant high crude rates compared to other states. Among those states with abnormal high rates, they have different changes in these 5 years. Some show an increasing trend, where as some display first decreasing and then increasing trend. The situation is quite complex to analyze as a whole. Therefore, we are going to compare states by states rather than finding a pattern among all of them.</p>
@@ -960,14 +942,13 @@ Stat 159</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">race1</span><span class="p">,</span> <span class="n">race2</span> <span class="o">=</span> <span class="n">races</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">races</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">if</span> <span class="n">race1</span> <span class="o">!=</span> <span class="n">race2</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="nb">print</span><span class="p">(</span><span class="n">race1</span><span class="p">,</span> <span class="n">race2</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">multitest_ca</span><span class="p">[</span><span class="n">multitest_ca</span><span class="p">[</span><span class="s2">&quot;Stratification1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">race1</span><span class="p">][</span><span class="s2">&quot;DataValue&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>               <span class="n">multitest_ca</span><span class="p">[</span><span class="n">multitest_ca</span><span class="p">[</span><span class="s2">&quot;Stratification1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">race2</span><span class="p">][</span><span class="s2">&quot;DataValue&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">races</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Black, non-Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;White, non-Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;Other, non-Hispanic&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">races</span><span class="p">)):</span>
 
-<span class="ne">NameError</span>: name &#39;multitest_ca&#39; is not defined
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
 </pre></div>
 </div>
 </div>
