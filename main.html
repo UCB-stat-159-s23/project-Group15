@@ -399,7 +399,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-move-to-package-may-create-other-viz-for-other-variables-e-g-deaths">ToDo: move to package -&gt; may create other viz for other variables e.g. deaths</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#our-research-question-is">Our research question is:</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-level-of-economic-development">How significant the differences are in crude rate of the states with various level of economic development?</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">How significant the differences are in crude rate of the states with various levels of economic development?</a></li>
 </ul>
 </li>
 </ul>
@@ -429,6 +429,19 @@ Stat 159</p>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
 </pre></div>
 </div>
 </div>
@@ -654,7 +667,7 @@ Stat 159</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1852/2096028377.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_196/2096028377.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   opioid_annual = opioid_range.groupby([&#39;Year&#39;, &#39;State&#39;],as_index=False).mean()
 </pre></div>
 </div>
@@ -904,15 +917,15 @@ Stat 159</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2a619e99ca2d01ce6bfc28486cd965c739b364f9abac35be802ddab0dc8c059d.png" src="_images/2a619e99ca2d01ce6bfc28486cd965c739b364f9abac35be802ddab0dc8c059d.png" />
+<img alt="_images/da9a99517f2d6f54581546949ef4087e099ec9d8e4a38fabb14201419d8fd998.png" src="_images/da9a99517f2d6f54581546949ef4087e099ec9d8e4a38fabb14201419d8fd998.png" />
 </div>
 </div>
 <p>From the visualization above, we can obviously see that some states have significant high crude rates compared to other states. Among those states with abnormal high rates, they have different changes in these 5 years. Some show an increasing trend, where as some display first decreasing and then increasing trend. The situation is quite complex to analyze as a whole. Therefore, we are going to compare states by states rather than finding a pattern among all of them.</p>
 </section>
 <section id="our-research-question-is">
 <h4>Our research question is:<a class="headerlink" href="#our-research-question-is" title="Permalink to this heading">#</a></h4>
-<section id="how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-level-of-economic-development">
-<h5>How significant the differences are in crude rate of the states with various level of economic development?<a class="headerlink" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-level-of-economic-development" title="Permalink to this heading">#</a></h5>
+<section id="how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">
+<h5>How significant the differences are in crude rate of the states with various levels of economic development?<a class="headerlink" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development" title="Permalink to this heading">#</a></h5>
 </section>
 </section>
 </section>
@@ -928,35 +941,7 @@ Stat 159</p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span>
-
-<span class="n">races</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Black, non-Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;White, non-Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;Other, non-Hispanic&quot;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">races</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">races</span><span class="p">)):</span>
-        <span class="n">race1</span><span class="p">,</span> <span class="n">race2</span> <span class="o">=</span> <span class="n">races</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">races</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">race1</span> <span class="o">!=</span> <span class="n">race2</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">race1</span><span class="p">,</span> <span class="n">race2</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">multitest_ca</span><span class="p">[</span><span class="n">multitest_ca</span><span class="p">[</span><span class="s2">&quot;Stratification1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">race1</span><span class="p">][</span><span class="s2">&quot;DataValue&quot;</span><span class="p">],</span>
-                      <span class="n">multitest_ca</span><span class="p">[</span><span class="n">multitest_ca</span><span class="p">[</span><span class="s2">&quot;Stratification1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">race2</span><span class="p">][</span><span class="s2">&quot;DataValue&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">races</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Black, non-Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;White, non-Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;Hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;Other, non-Hispanic&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">races</span><span class="p">)):</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Maryland&#39;</span><span class="p">][</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">],</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Maryland&#39;</span><span class="p">][</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">],</span>
                      <span class="n">gdp_opioid</span><span class="p">[</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Minnesota&#39;</span><span class="p">][</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">],</span>
                      <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
@@ -1054,7 +1039,7 @@ Stat 159</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-move-to-package-may-create-other-viz-for-other-variables-e-g-deaths">ToDo: move to package -&gt; may create other viz for other variables e.g. deaths</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#our-research-question-is">Our research question is:</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-level-of-economic-development">How significant the differences are in crude rate of the states with various level of economic development?</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">How significant the differences are in crude rate of the states with various levels of economic development?</a></li>
 </ul>
 </li>
 </ul>

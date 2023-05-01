@@ -15,24 +15,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+import seaborn as sns
 import scipy.stats
-
-races = ["Black, non-Hispanic", "White, non-Hispanic", "Hispanic", "Other, non-Hispanic"]
-for i in range(len(races)):
-    for j in range(i, len(races)):
-        race1, race2 = races[i], races[j]
-        if race1 != race2:
-            print(race1, race2, scipy.stats.ttest_ind(multitest_ca[multitest_ca["Stratification1"] == race1]["DataValue"],
-                      multitest_ca[multitest_ca["Stratification1"] == race2]["DataValue"], axis=0, equal_var=False))
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[10], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m
-[1;32m      3[0m races [38;5;241m=[39m [[38;5;124m"[39m[38;5;124mBlack, non-Hispanic[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mWhite, non-Hispanic[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mHispanic[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mOther, non-Hispanic[39m[38;5;124m"[39m]
-[1;32m      4[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;28mlen[39m(races)):
+Cell [0;32mIn[1], line 5[0m
+[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m pyplot [38;5;28;01mas[39;00m plt
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m
+[0;32m----> 5[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m
 
 [0;31mModuleNotFoundError[0m: No module named 'scipy'
 
