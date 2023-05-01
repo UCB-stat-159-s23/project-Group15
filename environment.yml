@@ -9,4 +9,4 @@ dependencies:
   - matplotlib
   - scipy
 
-prefix: /home/jovyan/envs/ligo
+prefix: /home/jovyan/envs/final
