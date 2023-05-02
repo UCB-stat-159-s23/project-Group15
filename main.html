@@ -388,7 +388,6 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-preprocessing">Data Cleaning &amp; Preprocessing</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opioid-data">Opioid Data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-may-turn-this-cell-into-reproducible-tools">ToDo: may turn this cell into reproducible tools</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gdp-data">GDP Data</a></li>
 </ul>
 </li>
@@ -430,6 +429,7 @@ Stat 159</p>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">utils</span>
 </pre></div>
 </div>
 </div>
@@ -440,6 +440,7 @@ Stat 159</p>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">utils</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
 </pre></div>
@@ -644,14 +645,11 @@ Stat 159</p>
 </div>
 </div>
 </div>
-</section>
-<section id="todo-may-turn-this-cell-into-reproducible-tools">
-<h4>ToDo: may turn this cell into reproducible tools<a class="headerlink" href="#todo-may-turn-this-cell-into-reproducible-tools" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert quantitative data to numeric data type</span>
-<span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Deaths&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Deaths&#39;</span><span class="p">])</span>
-<span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">])</span>
+<span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Deaths&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
+<span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">opioid</span><span class="p">,</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -667,7 +665,7 @@ Stat 159</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_196/2096028377.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_241/2096028377.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   opioid_annual = opioid_range.groupby([&#39;Year&#39;, &#39;State&#39;],as_index=False).mean()
 </pre></div>
 </div>
@@ -887,6 +885,23 @@ Stat 159</p>
 <p>parameters: variable name, y limit</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">utils</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;opioidtools.utils&#39; has no attribute &#39;viz&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot change in crude rate of states with available data 2010-2014</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">45</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
@@ -1028,7 +1043,6 @@ Stat 159</p>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-preprocessing">Data Cleaning &amp; Preprocessing</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opioid-data">Opioid Data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-may-turn-this-cell-into-reproducible-tools">ToDo: may turn this cell into reproducible tools</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gdp-data">GDP Data</a></li>
 </ul>
 </li>
