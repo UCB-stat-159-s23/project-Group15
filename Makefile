@@ -1,12 +1,19 @@
 .ONESHELL:
 SHELL = /bin/bash
 
-create_environment :
+.PHONy: all
+all:
+	jupyter nbconvert --execute --to notebook --inplace main.ipynb
+	
+
+
+.PHONY: env
+env :
 	source /srv/conda/etc/profile.d/conda.sh
 	conda env create -f environment.yml 
-	conda activate notebook
+	conda activate final
 	conda install ipykernel
-	python -m ipykernel install --user --name make-env --display-name "IPython - Make"
+	python -m ipykernel install --user --name final --display-name "IPython - final"
 	
 .PHONY: html
 html:
@@ -32,3 +39,7 @@ clean:
 	rm -rf figures/*
 	rm -rf _build/html/
 	rm -rf _build/*
+
+.PHONY : help
+help : Makefile
+	@sed -n 's/^##//p' $<
