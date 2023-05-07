@@ -386,35 +386,19 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Project - Group 15</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-datasets">Import Datasets</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-add-descriptions-for-dataset-source">ToDo: Add descriptions for dataset source</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-preprocessing">Data Cleaning &amp; Preprocessing</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opioid-data">Opioid Data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gdp-data">GDP Data</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-dataframes">Merging Dataframes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-reduced-to-251-rows-bc-don-t-have-opioid-data-for-every-state-for-each-year">Note: reduced to 251 rows bc don’t have opioid data for every state for each year</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pre-processed-dataset">Import Pre-processed Dataset</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-move-to-package-may-create-other-viz-for-other-variables-e-g-deaths">ToDo: move to package -&gt; may create other viz for other variables e.g. deaths</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#our-research-question-is">Our research question is:</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">How significant the differences are in crude rate of the states with various levels of economic development?</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question-how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">Research question: How significant the differences are in crude rate of the states with various levels of economic development?</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-analysis">Initial Analysis:</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-average-gdp-for-each-state-over-2010-2014">Visualization of Average GDP for Each State over 2010-2014:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-minimum-mdian-and-maximum-avg-gdp-among-states-over-2010-to-2014">Find the minimum, mdian, and Maximum avg GDP among states over 2010 to 2014:</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">Find the minimum, median, and Maximum avg GDP among states over 2010 to 2014:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state">Visualization of the Highest Average GDP State and the Lowest Average GDP State:</a></li>
 </ul>
 </li>
@@ -446,7 +430,8 @@ document.write(`
 Stat 159</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary packages</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -458,273 +443,22 @@ Stat 159</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">utils</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
-<section id="import-datasets">
-<h3>Import Datasets<a class="headerlink" href="#import-datasets" title="Permalink to this heading">#</a></h3>
-<section id="todo-add-descriptions-for-dataset-source">
-<h4>ToDo: Add descriptions for dataset source<a class="headerlink" href="#todo-add-descriptions-for-dataset-source" title="Permalink to this heading">#</a></h4>
+<section id="import-pre-processed-dataset">
+<h2>Import Pre-processed Dataset<a class="headerlink" href="#import-pre-processed-dataset" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opioid Overdose Deaths</span>
-<span class="n">opioid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/Multiple Cause of Death 1999-2014 v1.1.csv&#39;</span><span class="p">)</span>
-<span class="n">opioid</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>State</th>
-      <th>Year</th>
-      <th>Deaths</th>
-      <th>Population</th>
-      <th>Crude Rate</th>
-      <th>Crude Rate Lower 95% Confidence Interval</th>
-      <th>Crude Rate Upper 95% Confidence Interval</th>
-      <th>Prescriptions Dispensed by US Retailers in that year (millions)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Alabama</td>
-      <td>1999</td>
-      <td>39</td>
-      <td>4430141</td>
-      <td>0.9</td>
-      <td>0.6</td>
-      <td>1.2</td>
-      <td>116</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Alabama</td>
-      <td>2000</td>
-      <td>46</td>
-      <td>4447100</td>
-      <td>1</td>
-      <td>0.8</td>
-      <td>1.4</td>
-      <td>126</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Alabama</td>
-      <td>2001</td>
-      <td>67</td>
-      <td>4467634</td>
-      <td>1.5</td>
-      <td>1.2</td>
-      <td>1.9</td>
-      <td>138</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Alabama</td>
-      <td>2002</td>
-      <td>75</td>
-      <td>4480089</td>
-      <td>1.7</td>
-      <td>1.3</td>
-      <td>2.1</td>
-      <td>142</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Alabama</td>
-      <td>2003</td>
-      <td>54</td>
-      <td>4503491</td>
-      <td>1.2</td>
-      <td>0.9</td>
-      <td>1.6</td>
-      <td>149</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>811</th>
-      <td>Wyoming</td>
-      <td>2010</td>
-      <td>49</td>
-      <td>563626</td>
-      <td>8.7</td>
-      <td>6.4</td>
-      <td>11.5</td>
-      <td>210</td>
-    </tr>
-    <tr>
-      <th>812</th>
-      <td>Wyoming</td>
-      <td>2011</td>
-      <td>47</td>
-      <td>568158</td>
-      <td>8.3</td>
-      <td>6.1</td>
-      <td>11</td>
-      <td>219</td>
-    </tr>
-    <tr>
-      <th>813</th>
-      <td>Wyoming</td>
-      <td>2012</td>
-      <td>47</td>
-      <td>576412</td>
-      <td>8.2</td>
-      <td>6</td>
-      <td>10.8</td>
-      <td>217</td>
-    </tr>
-    <tr>
-      <th>814</th>
-      <td>Wyoming</td>
-      <td>2013</td>
-      <td>52</td>
-      <td>582658</td>
-      <td>8.9</td>
-      <td>6.7</td>
-      <td>11.7</td>
-      <td>207</td>
-    </tr>
-    <tr>
-      <th>815</th>
-      <td>Wyoming</td>
-      <td>2014</td>
-      <td>57</td>
-      <td>584153</td>
-      <td>9.8</td>
-      <td>7.4</td>
-      <td>12.6</td>
-      <td>196</td>
-    </tr>
-  </tbody>
-</table>
-<p>816 rows × 8 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gdp 2010-2022</span>
-<span class="n">gdp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/2010 to 2022 Gross Domestic Product_ All Industry Total by State (Millions of Dollars).csv&#39;</span><span class="p">)</span>
-<span class="n">gdp</span> <span class="o">=</span> <span class="n">gdp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">gdp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">gdp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">gdp</span> <span class="o">=</span> <span class="n">gdp</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">gdp</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Region Name&#39;</span><span class="p">:</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="s1">&#39;2010-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2010&#39;</span><span class="p">,</span> <span class="s1">&#39;2011-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2011&#39;</span><span class="p">,</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2012&#39;</span><span class="p">,</span> <span class="s1">&#39;2013-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2013&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2014&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="data-cleaning-preprocessing">
-<h3>Data Cleaning &amp; Preprocessing<a class="headerlink" href="#data-cleaning-preprocessing" title="Permalink to this heading">#</a></h3>
-<section id="opioid-data">
-<h4>Opioid Data<a class="headerlink" href="#opioid-data" title="Permalink to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop rows with suppressed, unreliable, or na values</span>
-<span class="n">opioid</span> <span class="o">=</span> <span class="n">opioid</span><span class="p">[</span><span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Deaths&#39;</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;Suppressed&#39;</span><span class="p">]</span>
-<span class="n">opioid</span> <span class="o">=</span> <span class="n">opioid</span><span class="p">[</span><span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;Unreliable&#39;</span><span class="p">]</span>
-<span class="n">opioid</span> <span class="o">=</span> <span class="n">opioid</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert quantitative data to numeric data type</span>
-<span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Deaths&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
-<span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">opioid</span><span class="p">,</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select opioid data within 2010-2014 (range of gdp data)</span>
-<span class="n">opioid_range</span> <span class="o">=</span> <span class="n">opioid</span><span class="p">[(</span><span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">2014</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">opioid</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">2010</span><span class="p">)]</span>
-
-<span class="c1"># group data by year and state; there&#39;s only </span>
-<span class="n">opioid_annual</span> <span class="o">=</span> <span class="n">opioid_range</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">],</span><span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3200/2096028377.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
-  opioid_annual = opioid_range.groupby([&#39;Year&#39;, &#39;State&#39;],as_index=False).mean()
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="gdp-data">
-<h4>GDP Data<a class="headerlink" href="#gdp-data" title="Permalink to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rearrange gdp dataframe so can merge with opioid df</span>
-<span class="c1"># repeat region rows for each year (5 times)</span>
-<span class="n">region_info</span> <span class="o">=</span> <span class="n">gdp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> 
-<span class="n">region_info</span> <span class="o">=</span> <span class="n">region_info</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">region_info</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># change gdp columns to rows</span>
-<span class="n">years_gdp</span> <span class="o">=</span> <span class="n">gdp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">3</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">years_gdp_arr</span> <span class="o">=</span> <span class="p">([])</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">51</span><span class="p">):</span>
-    <span class="n">years_gdp_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">years_gdp_arr</span><span class="p">,</span><span class="n">years_gdp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
-<span class="n">years_gdp</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">years_gdp_arr</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">])</span>
-<span class="n">years</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">2010</span><span class="p">,</span><span class="mi">2011</span><span class="p">,</span><span class="mi">2012</span><span class="p">,</span><span class="mi">2013</span><span class="p">,</span><span class="mi">2014</span><span class="p">]</span><span class="o">*</span><span class="mi">51</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
-<span class="c1"># concatenate into new dataframe</span>
-<span class="n">gdp_annual</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">years</span><span class="p">,</span><span class="n">region_info</span><span class="p">,</span><span class="n">years_gdp</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="merging-dataframes">
-<h3>Merging Dataframes<a class="headerlink" href="#merging-dataframes" title="Permalink to this heading">#</a></h3>
-<section id="note-reduced-to-251-rows-bc-don-t-have-opioid-data-for-every-state-for-each-year">
-<h4>Note: reduced to 251 rows bc don’t have opioid data for every state for each year<a class="headerlink" href="#note-reduced-to-251-rows-bc-don-t-have-opioid-data-for-every-state-for-each-year" title="Permalink to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># merge datasets by year and state</span>
-<span class="n">gdp_opioid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">gdp_annual</span><span class="p">,</span> <span class="n">opioid_annual</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;State&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_opioid</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/gdp_opioid.csv&#39;</span><span class="p">)</span>
 <span class="n">gdp_opioid</span>
 </pre></div>
 </div>
@@ -765,8 +499,8 @@ Stat 159</p>
       <td>2010</td>
       <td>ALNQGSP</td>
       <td>Alabama</td>
-      <td>01</td>
-      <td>177249.15</td>
+      <td>1</td>
+      <td>177249.150</td>
       <td>194.0</td>
       <td>4779736.0</td>
       <td>4.1</td>
@@ -777,7 +511,7 @@ Stat 159</p>
       <td>2011</td>
       <td>ALNQGSP</td>
       <td>Alabama</td>
-      <td>01</td>
+      <td>1</td>
       <td>183916.625</td>
       <td>180.0</td>
       <td>4802740.0</td>
@@ -789,7 +523,7 @@ Stat 159</p>
       <td>2012</td>
       <td>ALNQGSP</td>
       <td>Alabama</td>
-      <td>01</td>
+      <td>1</td>
       <td>189245.525</td>
       <td>175.0</td>
       <td>4822023.0</td>
@@ -801,7 +535,7 @@ Stat 159</p>
       <td>2013</td>
       <td>ALNQGSP</td>
       <td>Alabama</td>
-      <td>01</td>
+      <td>1</td>
       <td>194786.925</td>
       <td>175.0</td>
       <td>4833722.0</td>
@@ -813,8 +547,8 @@ Stat 159</p>
       <td>2014</td>
       <td>ALNQGSP</td>
       <td>Alabama</td>
-      <td>01</td>
-      <td>197406.85</td>
+      <td>1</td>
+      <td>197406.850</td>
       <td>282.0</td>
       <td>4849377.0</td>
       <td>5.8</td>
@@ -862,7 +596,7 @@ Stat 159</p>
       <td>WYNQGSP</td>
       <td>Wyoming</td>
       <td>56</td>
-      <td>38855.4</td>
+      <td>38855.400</td>
       <td>47.0</td>
       <td>576412.0</td>
       <td>8.2</td>
@@ -886,7 +620,7 @@ Stat 159</p>
       <td>WYNQGSP</td>
       <td>Wyoming</td>
       <td>56</td>
-      <td>40310.6</td>
+      <td>40310.600</td>
       <td>57.0</td>
       <td>584153.0</td>
       <td>9.8</td>
@@ -897,8 +631,6 @@ Stat 159</p>
 <p>251 rows × 9 columns</p>
 </div></div></div>
 </div>
-</section>
-</section>
 <section id="eda">
 <h3>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h3>
 <p>In order to better understand the overall trends of crude rate of different states, we now create a visualization for the states with available data to see the change of crude rates from 2010 to 2014.</p>
@@ -907,61 +639,35 @@ Stat 159</p>
 <p>parameters: variable name, y limit</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#utils.viz(gdp_opioid, &#39;Deaths&#39;)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot change in crude rate of states with available data 2010-2014</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">45</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># create state name array and reshape it</span>
-<span class="n">state_name</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">state_name</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">state_name</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">17</span><span class="p">):</span>
-        <span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="p">[</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">state_name</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]],</span> 
-                      <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">])</span>
-        <span class="n">axs</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">state_name</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">])</span>
-        
-        <span class="c1"># add y ticks for only the first column of plots</span>
-        <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">axs</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-        
-        <span class="c1"># add x ticks for only the last row of plots</span>
-        <span class="k">if</span> <span class="n">row</span> <span class="o">!=</span> <span class="mi">16</span><span class="p">:</span>
-            <span class="n">axs</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
-            
-        <span class="n">axs</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="n">axs</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="n">axs</span><span class="p">[</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
-        
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/Crude Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">state_viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/da9a99517f2d6f54581546949ef4087e099ec9d8e4a38fabb14201419d8fd998.png" src="_images/da9a99517f2d6f54581546949ef4087e099ec9d8e4a38fabb14201419d8fd998.png" />
+<img alt="_images/08586f8201ba3daeade8159cc494b64b476e8a62b65dbf7688b63b04908eca0a.png" src="_images/08586f8201ba3daeade8159cc494b64b476e8a62b65dbf7688b63b04908eca0a.png" />
 </div>
 </div>
-<p>From the visualization above, we can obviously see that some states have significant high crude rates compared to other states. Among those states with abnormal high rates, they have different changes in these 5 years. Some show an increasing trend, where as some display first decreasing and then increasing trend. The situation is quite complex to analyze as a whole. Therefore, we are going to compare states by states rather than finding a pattern among all of them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">state_viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/67ab62f70e9cb6d23a6a7670143b0c96442bf42e4bd4b37a61dda8f43382cfcc.png" src="_images/67ab62f70e9cb6d23a6a7670143b0c96442bf42e4bd4b37a61dda8f43382cfcc.png" />
+</div>
+</div>
+<p>From the visualization above, we can obviously see that some states have higher crude rates than other states. Among the states with significantly high rates, the states have different changes over the 5 years. Some states have a positive trend, whereas others have a negative and then positive trend. The situation is quite complex to analyze as a whole. Therefore, we are going to compare states with low and high GDP over the 5 years rather than comparing all of them.</p>
 </section>
-<section id="our-research-question-is">
-<h4>Our research question is:<a class="headerlink" href="#our-research-question-is" title="Permalink to this heading">#</a></h4>
-<section id="how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">
-<h5>How significant the differences are in crude rate of the states with various levels of economic development?<a class="headerlink" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development" title="Permalink to this heading">#</a></h5>
 </section>
-</section>
+<section id="research-question-how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">
+<h3>Research question: How significant the differences are in crude rate of the states with various levels of economic development?<a class="headerlink" href="#research-question-how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="initial-analysis">
 <h1>Initial Analysis:<a class="headerlink" href="#initial-analysis" title="Permalink to this heading">#</a></h1>
-<p>In order to compare the states with different levels of economic development, we decided to use a T-test for the state with the lowest GDP on average from 2010 to 2014, and the state with the highest GDP on average from 2010 to 2014 to see if there is a siginificant difference in the crude rate between the states with different levels of economic development. The assumption we made include the following:</p>
+<p>In order to compare the states with the lowest GDP on average with those with the highest GDP on average from 2010-2014, we decided to use a T-test to see if there is a siginificant difference in the crude rate. The assumptions we made were the following:</p>
 <ul class="simple">
 <li><p>large sample size is used</p></li>
 <li><p>each state of crude rate and other data relevant to opioid overdose deaths is independent of each other</p></li>
@@ -999,24 +705,11 @@ Stat 159</p>
 </div>
 </div>
 </section>
-<section id="find-the-minimum-mdian-and-maximum-avg-gdp-among-states-over-2010-to-2014">
-<h2>Find the minimum, mdian, and Maximum avg GDP among states over 2010 to 2014:<a class="headerlink" href="#find-the-minimum-mdian-and-maximum-avg-gdp-among-states-over-2010-to-2014" title="Permalink to this heading">#</a></h2>
+<section id="find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">
+<h2>Find the minimum, median, and Maximum avg GDP among states over 2010 to 2014:<a class="headerlink" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Find the Minimum, Median, and Maximum avg GDP among states over 2010 to 2014</span>
-<span class="n">median_gdp</span> <span class="o">=</span> <span class="n">state_avg_gdp_sorted</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-<span class="n">median_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_sorted</span><span class="p">[</span><span class="n">state_avg_gdp_sorted</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">median_gdp</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-
-<span class="n">min_gdp</span> <span class="o">=</span> <span class="n">state_avg_gdp_sorted</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-<span class="n">min_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_sorted</span><span class="p">[</span><span class="n">state_avg_gdp_sorted</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">min_gdp</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-
-<span class="n">max_gdp</span> <span class="o">=</span> <span class="n">state_avg_gdp_sorted</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="n">max_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_sorted</span><span class="p">[</span><span class="n">state_avg_gdp_sorted</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">max_gdp</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-
-<span class="c1"># Print the results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Minimum: </span><span class="si">{</span><span class="n">min_gdp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;State: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">min_gdp_states</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Median: </span><span class="si">{</span><span class="n">median_gdp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;State: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">median_gdp_states</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum: </span><span class="si">{</span><span class="n">max_gdp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;State: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">max_gdp_states</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">avg_gdp_states</span><span class="p">(</span><span class="n">state_avg_gdp_sorted</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1044,7 +737,7 @@ Maximum: 2129273.11 State: California
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP over Years for </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Vermont&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">))</span>
 
 <span class="c1"># x ticks format</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">years</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">years</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="o">.</span><span class="n">Year</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="o">.</span><span class="n">Year</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1091,25 +784,12 @@ p-value: 0.0008790286706211422
 <p>In the above analysis, there are only two states (the highest and the lowest average GDP over 2010 to 2014) were compared. In the following process, we are going to split the states into two parts, one is the states with the higher average GDP, the other one is the states with the lower average GDP. We will conduct the t-test to compare the mean values of the “Crude Rate” between these two parts to see if there is a significant diffference.</p>
 <section id="hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">
 <h2>Hypothesis Testing: High average GDP states vs. Low average GDP states<a class="headerlink" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states" title="Permalink to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\( H0 \)</span> = There is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
-<p><span class="math notranslate nohighlight">\( H1 \)</span> = There is a significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
+<p><span class="math notranslate nohighlight">\( H_0 \)</span> = There is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
+<p><span class="math notranslate nohighlight">\( H_1 \)</span> = There is a significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter out the high avg GDP and low avg GDP states (&gt; or &lt; than the median)</span>
-<span class="n">median_gdp</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-<span class="n">high_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="p">[</span><span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">&gt;=</span> <span class="n">median_gdp</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
-<span class="n">low_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="p">[</span><span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">&lt;</span> <span class="n">median_gdp</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
-<span class="n">high_low_gdp</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="p">[</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">high_gdp_states</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">low_gdp_states</span><span class="p">))]</span>
-
-<span class="c1"># Obtain the crude rate from high and low avg GDP from states.</span>
-<span class="n">high_gdp_crude_rate</span> <span class="o">=</span> <span class="n">high_low_gdp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">high_low_gdp</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">high_gdp_states</span><span class="p">),</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">]</span>
-<span class="n">low_gdp_crude_rate</span> <span class="o">=</span> <span class="n">high_low_gdp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">high_low_gdp</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">low_gdp_states</span><span class="p">),</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">]</span>
-
-<span class="c1"># T-test</span>
-<span class="n">t_stat_for_two_groups_states</span><span class="p">,</span> <span class="n">p_value_for_two_groups_states</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">high_gdp_crude_rate</span><span class="p">,</span> <span class="n">low_gdp_crude_rate</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T-statistic:&quot;</span><span class="p">,</span> <span class="n">t_stat_for_two_groups_states</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value:&quot;</span><span class="p">,</span> <span class="n">p_value_for_two_groups_states</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># crude rate from states with high and low avg GDP </span>
+<span class="n">utils</span><span class="o">.</span><span class="n">high_low_crude_rates_ttest</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">,</span><span class="n">gdp_opioid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1194,35 +874,19 @@ p-value: 0.0004532330883314629
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Project - Group 15</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-datasets">Import Datasets</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-add-descriptions-for-dataset-source">ToDo: Add descriptions for dataset source</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-preprocessing">Data Cleaning &amp; Preprocessing</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opioid-data">Opioid Data</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gdp-data">GDP Data</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-dataframes">Merging Dataframes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#note-reduced-to-251-rows-bc-don-t-have-opioid-data-for-every-state-for-each-year">Note: reduced to 251 rows bc don’t have opioid data for every state for each year</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pre-processed-dataset">Import Pre-processed Dataset</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-move-to-package-may-create-other-viz-for-other-variables-e-g-deaths">ToDo: move to package -&gt; may create other viz for other variables e.g. deaths</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#our-research-question-is">Our research question is:</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">How significant the differences are in crude rate of the states with various levels of economic development?</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question-how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">Research question: How significant the differences are in crude rate of the states with various levels of economic development?</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-analysis">Initial Analysis:</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-average-gdp-for-each-state-over-2010-2014">Visualization of Average GDP for Each State over 2010-2014:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-minimum-mdian-and-maximum-avg-gdp-among-states-over-2010-to-2014">Find the minimum, mdian, and Maximum avg GDP among states over 2010 to 2014:</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">Find the minimum, median, and Maximum avg GDP among states over 2010 to 2014:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state">Visualization of the Highest Average GDP State and the Lowest Average GDP State:</a></li>
 </ul>
 </li>
