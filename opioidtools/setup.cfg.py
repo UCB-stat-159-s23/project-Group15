@@ -1,9 +1,9 @@
 [metadata]
 name             = ligotools
 version          = attr:ligotools.__version__
-author           = Ligo Scientific Collaboration (LSC) and Group 15: Jennifer, Yi, Irene, Zac
+author           = Group 15: Jennifer, Yi, Irene, Zac
 author_email     = jenniferr.brown@berkeley.edu
-description      = A Python library for [PACKAGE_NAME]
+description      = A Python library for Comparing Opioid Crude Rates & GDP
 long_description = file: README.md, LICENSE
 long_description_content_type = text/markdown
 keywords         = tools
