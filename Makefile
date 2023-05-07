@@ -3,8 +3,9 @@ SHELL = /bin/bash
 
 .PHONy: all
 all:
-	jupyter nbconvert --execute --to notebook --inplace main.ipynb
-	
+	jupyter execute main.ipynb
+	jupyter execute preprocessing.ipynb
+
 
 
 .PHONY: env
