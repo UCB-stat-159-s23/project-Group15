@@ -1,16 +1,16 @@
 [metadata]
-name             = ligotools
-version          = attr:ligotools.__version__
+name             = opioidtools
+version          = attr:opioidtools.__version__
 author           = Group 15: Jennifer, Yi, Irene, Zac
 author_email     = jenniferr.brown@berkeley.edu
 description      = A Python library for Comparing Opioid Crude Rates & GDP
-long_description = file: README.md, LICENSE
+long_description = file: README.md, LICENSE.md
 long_description_content_type = text/markdown
 keywords         = tools
-license          = BSD 3-Clause License
+license          = MIT License
 classifiers      =
 	Programming Language :: Python :: 3
-    License :: OSI Approved :: BSD License
+    License :: OSI Approved :: MIT License
     Operating System :: OS Independent
 
 [options]
