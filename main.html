@@ -464,7 +464,8 @@ document.write(`
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_opioid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/gdp_opioid.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import preprocessed data from data directory</span>
+<span class="n">gdp_opioid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/gdp_opioid.csv&#39;</span><span class="p">)</span>
 <span class="n">gdp_opioid</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -588,11 +589,11 @@ document.write(`
 <img alt="_images/946c4789ac34fa7b62dbc07c2ed6a16a7a0a1bfb56383c70486c8ad5b285a126.png" src="_images/946c4789ac34fa7b62dbc07c2ed6a16a7a0a1bfb56383c70486c8ad5b285a126.png" />
 </div>
 </div>
-<p>From the visualization above, we can obviously see that some states have significant high crude rates compared to other states. Among those states with abnormal high rates, they have different changes in these 5 years. Some show an increasing trend, where as some display first decreasing and then increasing trend. The situation is quite complex to analyze as a whole. Therefore, we are going to compare states by states rather than finding a pattern among all of them.</p>
+<p>From the visualization above, we can obviously see that some states have significant high crude rates compared to other states. Among those states with abnormal high rates, they have different changes over these 5 years. Some show an increasing trend, whereas some display first decreasing and then increasing trend. The situation is quite complex to analyze as a whole and there are too many states to individually compare each of them (this would also lead to multiple testing errors). Therefore, we are instead going to compare the states with the highest average GDP and lowest average GDP across 2010-2014.</p>
 </section>
 <section id="initial-analysis">
 <h2>Initial Analysis:<a class="headerlink" href="#initial-analysis" title="Permalink to this heading">#</a></h2>
-<p>In order to compare the states with different levels of economic development, we decided to use a T-test for the state with the lowest GDP on average from 2010 to 2014, and the state with the highest GDP on average from 2010 to 2014 to see if there is a siginificant difference in the crude rate between the states with different levels of economic development. The assumption we made include the following:</p>
+<p>In order to compare the states with different levels of economic development, we decided to use a T-test for the state with the lowest GDP on average from 2010 to 2014, and the state with the highest GDP on average from 2010 to 2014 to see if there is a siginificant difference in the crude rate. The assumptions we made include the following:</p>
 <ul class="simple">
 <li><p>large sample size is used</p></li>
 <li><p>each state of crude rate and other data relevant to opioid overdose deaths is independent of each other</p></li>
@@ -603,14 +604,8 @@ document.write(`
 <h3>Visualization of Average GDP for Each State over 2010-2014:<a class="headerlink" href="#visualization-of-average-gdp-for-each-state-over-2010-2014" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy the merged dataset and use it for the analysis part</span>
-<span class="n">gdp_opioid_for_analysis</span> <span class="o">=</span> <span class="n">gdp_opioid</span>
-
-<span class="c1"># Convert GDP_0101 column to a numeric data type</span>
-<span class="n">gdp_opioid_for_analysis</span><span class="p">[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">,</span> <span class="s1">&#39;GDP_0101&#39;</span><span class="p">)</span>
-
-<span class="c1"># Find the average GDP for each state over 2010 to 2014</span>
-<span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">=</span> <span class="n">gdp_opioid_for_analysis</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the average GDP for each state over 2010 to 2014 (GDP as of 1/1 of each year)</span>
+<span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="c1"># Plot</span>
 <span class="n">utils</span><span class="o">.</span><span class="n">vis_avg_gdp_for_each_state</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
@@ -618,7 +613,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8062831c8d4254438c6e22716a47bf6efb8e243c006d8f5edbad0490c06a53b1.png" src="_images/8062831c8d4254438c6e22716a47bf6efb8e243c006d8f5edbad0490c06a53b1.png" />
+<img alt="_images/50ade14411edb790c48d66bae832df491db9993f4e841008e65bfff9fd1ec73c.png" src="_images/50ade14411edb790c48d66bae832df491db9993f4e841008e65bfff9fd1ec73c.png" />
 </div>
 </div>
 </section>
@@ -643,7 +638,7 @@ Maximum: 2129273.11 State: California
 <h3>Visualization of the Highest Average GDP State and the Lowest Average GDP State:<a class="headerlink" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">vis_two_avg_gdp_states</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">,</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">vis_two_avg_gdp_states</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -654,11 +649,11 @@ Maximum: 2129273.11 State: California
 </section>
 <section id="hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">
 <h3>Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:<a class="headerlink" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state" title="Permalink to this heading">#</a></h3>
-<p><span class="math notranslate nohighlight">\( H0 \)</span> = There is no significant difference in the crude rate between California and Vermont.</p>
-<p><span class="math notranslate nohighlight">\( H1 \)</span> = There is a significant difference in the crude rate between California and Vermont.</p>
+<p><span class="math notranslate nohighlight">\( H_0 \)</span> = There is no significant difference in the crude rate between California and Vermont.</p>
+<p><span class="math notranslate nohighlight">\( H_1 \)</span> = There is a significant difference in the crude rate between California and Vermont.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermont&#39;</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermont&#39;</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -678,14 +673,14 @@ p-value: 0.0008790286706211422
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="extended-analysis">
 <h1>Extended Analysis:<a class="headerlink" href="#extended-analysis" title="Permalink to this heading">#</a></h1>
-<p>In the above analysis, there are only two states (the highest and the lowest average GDP over 2010 to 2014) were compared. In the following process, we are going to split the states into two parts, one is the states with the higher average GDP, the other one is the states with the lower average GDP. We will conduct the t-test to compare the mean values of the “Crude Rate” between these two parts to see if there is a significant diffference.</p>
+<p>In the above analysis, only the crude rate of two states (the highest and the lowest average GDP over 2010 to 2014) were compared. Now we will compare the crude rate of two <span class="math notranslate nohighlight">\(\textbf{groups}\)</span> of states: states with higher average GDP and states with lower average GDP. We will conduct a t-test to compare the mean values of the “Crude Rate” between these two groups to see if there is a significant difference.</p>
 <section id="hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">
 <h2>Hypothesis Testing: High average GDP states vs. Low average GDP states<a class="headerlink" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states" title="Permalink to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\( H0 \)</span> = There is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
-<p><span class="math notranslate nohighlight">\( H1 \)</span> = There is a significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
+<p><span class="math notranslate nohighlight">\( H_0 \)</span> = There is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
+<p><span class="math notranslate nohighlight">\( H_1 \)</span> = There is a significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR_for_two_groups</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR_for_two_groups</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -699,16 +694,17 @@ p-value: 0.0004532330883314629
 </section>
 <section id="final-conclusion">
 <h2>Final Conclusion:<a class="headerlink" href="#final-conclusion" title="Permalink to this heading">#</a></h2>
-<p>We found a T-statistic of -3.55 and a p-value of 0.00045 based on the output. The p-value is less than 0.05, which indicates that we reject the null hypothesis that there is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP.</p>
-<p>Therefore, we concluded that there is a statistically significant difference in the crude rate between these two groups of states. The t-statistic indicates that the crude rate of the states with higher average GDP is higher than the states with lower average GDP.</p>
+<p>We found a T-statistic of -3.55 and a p-value of 0.00045 based on the output. The p-value is less than 0.05, which indicates that we can reject the null hypothesis, which says there is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP.</p>
+<p>Therefore, we conclude that there is a statistically significant difference in the crude rate between these two groups of states. The t-statistic indicates that the crude rate of the states with higher average GDP is higher than the states with lower average GDP.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="author-contributions">
 <h1>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this heading">#</a></h1>
-<p>Jenny:</p>
+<p>Jenny: Set up repository structure, made package installable, wrote docstrings in <a class="reference external" href="http://utils.py">utils.py</a>, and merged two dataframes (in preprocessing). Assisted in functional structure of code &amp; testing by moving functions &amp; plotting code to <a class="reference external" href="http://utils.py">utils.py</a>. Assisted in analysis notebooks &amp; supporting code by helping to organize analysis notebooks.</p>
 <p>Zac:</p>
 <p>Irene:</p>
 <p>Yi:</p>
+<p>All members aided in writing the <a class="reference external" href="http://README.md">README.md</a>.</p>
 </section>
 
     <script type="text/x-thebe-config">

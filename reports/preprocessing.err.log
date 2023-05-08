@@ -37,7 +37,12 @@ File [0;32m~/work/project-Group15/project-Group15/opioidtools/utils.py:6[0m
 [1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m
 [0;32m----> 6[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m
 [1;32m     10[0m [38;5;28;01mdef[39;00m [38;5;21mto_numeric[39m(df, col_name):
-[1;32m     11[0m     [38;5;28;01mreturn[39;00m pd[38;5;241m.[39mto_numeric(df[col_name])
+[1;32m     11[0m [38;5;250m    [39m[38;5;124;03m"""converts column of dataframe to numeric[39;00m
+[1;32m     12[0m [38;5;124;03m    Parameters[39;00m
+[1;32m     13[0m [38;5;124;03m    ----------[39;00m
+[0;32m   (...)[0m
+[1;32m     17[0m [38;5;124;03m        The column to convert to numeric[39;00m
+[1;32m     18[0m [38;5;124;03m    """[39;00m
 
 [0;31mModuleNotFoundError[0m: No module named 'scipy'
 

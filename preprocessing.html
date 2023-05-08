@@ -441,7 +441,12 @@ document.write(`
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">def</span> <span class="nf">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col_name</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;converts column of dataframe to numeric</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span><span class="sd">     Parameters</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span><span class="sd">     ----------</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd">         The column to convert to numeric</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="sd">     &quot;&quot;&quot;</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
 </pre></div>
@@ -506,7 +511,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_24275/1788903058.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_7026/1788903058.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   opioid_annual = opioid_range.groupby([&#39;Year&#39;, &#39;State&#39;],as_index=False).mean()
 </pre></div>
 </div>
@@ -541,6 +546,14 @@ document.write(`
 <span class="n">years</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">2010</span><span class="p">,</span><span class="mi">2011</span><span class="p">,</span><span class="mi">2012</span><span class="p">,</span><span class="mi">2013</span><span class="p">,</span><span class="mi">2014</span><span class="p">]</span><span class="o">*</span><span class="mi">51</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
 <span class="c1"># concatenate into new dataframe</span>
 <span class="n">gdp_annual</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">years</span><span class="p">,</span><span class="n">region_info</span><span class="p">,</span><span class="n">years_gdp</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert quantitative data to numeric data type</span>
+<span class="n">gdp_annual</span><span class="p">[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">gdp_annual</span><span class="p">,</span> <span class="s1">&#39;GDP_0101&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -596,7 +609,7 @@ document.write(`
       <td>ALNQGSP</td>
       <td>Alabama</td>
       <td>01</td>
-      <td>177249.15</td>
+      <td>177249.150</td>
       <td>194.0</td>
       <td>4779736.0</td>
       <td>4.1</td>
@@ -644,7 +657,7 @@ document.write(`
       <td>ALNQGSP</td>
       <td>Alabama</td>
       <td>01</td>
-      <td>197406.85</td>
+      <td>197406.850</td>
       <td>282.0</td>
       <td>4849377.0</td>
       <td>5.8</td>
@@ -692,7 +705,7 @@ document.write(`
       <td>WYNQGSP</td>
       <td>Wyoming</td>
       <td>56</td>
-      <td>38855.4</td>
+      <td>38855.400</td>
       <td>47.0</td>
       <td>576412.0</td>
       <td>8.2</td>
@@ -716,7 +729,7 @@ document.write(`
       <td>WYNQGSP</td>
       <td>Wyoming</td>
       <td>56</td>
-      <td>40310.6</td>
+      <td>40310.600</td>
       <td>57.0</td>
       <td>584153.0</td>
       <td>9.8</td>
