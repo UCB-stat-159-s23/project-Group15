@@ -33,7 +33,7 @@ def viz(df, col_name):
 
             axs[row,col].set_xlabel('')
             axs[row,col].set_ylabel('')
-            axs[row,col].set_ylim(0,(max(df[col_name])%5+1)*5)
+            axs[row,col].set_ylim(0,(max(df[col_name])//5+1)*5)
     plt.savefig('figures/'+col_name)
     plt.show()
 
