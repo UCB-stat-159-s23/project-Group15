@@ -5,4 +5,5 @@ format: jb-book
 root: README.md
 chapters:
 - file: main
-- file: preprocessing.ipynb
+- file: preprocessing
+- file: analysis
