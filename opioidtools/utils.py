@@ -5,8 +5,6 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 import scipy.stats
 
-
-
 def to_numeric(df, col_name):
     """converts column of dataframe to numeric
     Parameters
