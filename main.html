@@ -687,7 +687,7 @@ Stat 159</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_35995/2096028377.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_36553/2096028377.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   opioid_annual = opioid_range.groupby([&#39;Year&#39;, &#39;State&#39;],as_index=False).mean()
 </pre></div>
 </div>
@@ -987,16 +987,7 @@ Stat 159</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">=</span> <span class="n">gdp_opioid_for_analysis</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Plot</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">utils</span><span class="o">.</span><span class="n">vis_avg_gdp_for_each_state</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: module &#39;opioidtools.utils&#39; has no attribute &#39;vis_avg_gdp_for_each_state&#39;
-</pre></div>
-</div>
+<img alt="_images/8062831c8d4254438c6e22716a47bf6efb8e243c006d8f5edbad0490c06a53b1.png" src="_images/8062831c8d4254438c6e22716a47bf6efb8e243c006d8f5edbad0490c06a53b1.png" />
 </div>
 </div>
 </section>
@@ -1005,6 +996,13 @@ Stat 159</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_min_median_max_gdp</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum: 28891.08 State: Vermont
+Median: 178983.00 State: South Carolina
+Maximum: 2129273.11 State: California
 </pre></div>
 </div>
 </div>
@@ -1018,6 +1016,9 @@ Stat 159</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/960a051bd7ce4e8f67b0d8ac3818166fd7f569a58645d96926abdfad9696448b.png" src="_images/960a051bd7ce4e8f67b0d8ac3818166fd7f569a58645d96926abdfad9696448b.png" />
+</div>
 </div>
 </section>
 <section id="hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">
@@ -1027,6 +1028,12 @@ Stat 159</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermont&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-statistic: -5.145630229646416
+p-value: 0.0008790286706211422
 </pre></div>
 </div>
 </div>
@@ -1047,6 +1054,12 @@ Stat 159</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR_for_two_groups</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-statistic: -3.5543687730571776
+p-value: 0.0004532330883314629
 </pre></div>
 </div>
 </div>
