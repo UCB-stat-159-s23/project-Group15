@@ -1,13 +1,6 @@
 .ONESHELL:
 SHELL = /bin/bash
 
-.PHONy: all
-all:
-	jupyter execute main.ipynb
-	jupyter execute preprocessing.ipynb
-
-
-
 .PHONY: env
 env :
 	source /srv/conda/etc/profile.d/conda.sh
@@ -15,6 +8,15 @@ env :
 	conda activate Opioid
 	conda install ipykernel
 	python -m ipykernel install --user --name Opioid --display-name "IPython - Opioid"
+	
+	
+.PHONy: all
+all:
+	jupyter execute main.ipynb
+	jupyter execute preprocessing.ipynb
+	jupyter execute analysis.ipynb
+
+
 	
 .PHONY: html
 html:
