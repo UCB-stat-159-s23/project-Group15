@@ -5,10 +5,12 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 import scipy.stats
 
+
+
 def to_numeric(df, col_name):
     return pd.to_numeric(df[col_name])
 
-def state_viz(df, col_name):
+def viz(df, col_name):
     fig, axs = plt.subplots(figsize=(8,45), nrows=17, ncols=3)
 
     # create state name array and reshape it
@@ -35,36 +37,82 @@ def state_viz(df, col_name):
     plt.savefig('figures/'+col_name)
     plt.show()
 
-def avg_gdp_states(gdp_avg_df):
+def vis_avg_gdp_for_each_state(state_avg_gdp_2010_to_2014):
+    # Sorted the data to make the graph clearer
+    state_avg_gdp_sorted = state_avg_gdp_2010_to_2014.sort_values(ascending=False)
+
+    # Plot the data
+    plt.figure(figsize=(6,10))
+    plt.barh(state_avg_gdp_sorted.index, state_avg_gdp_sorted.values)
+    plt.xlabel('Average GPD')
+    plt.ylabel('States')
+    plt.title('Average GDP Value for Each State over 2010-2014')
+    plt.savefig('figures/'+'Avg_GDP_for_Each_State_Over_Years')
+    plt.show()
+    
+def cal_print_min_median_max_gdp(state_avg_gdp_2010_to_2014):
     #Find the Minimum, Median, and Maximum avg GDP among states over 2010 to 2014
-    median_gdp = gdp_avg_df.median()
-    median_gdp_states = gdp_avg_df[gdp_avg_df.eq(median_gdp)].index.tolist()
+    median_gdp = state_avg_gdp_2010_to_2014.median()
+    median_gdp_states = state_avg_gdp_2010_to_2014[state_avg_gdp_2010_to_2014.eq(median_gdp)].index.tolist()
 
-    min_gdp = gdp_avg_df.min()
-    min_gdp_states = gdp_avg_df[gdp_avg_df.eq(min_gdp)].index.tolist()
+    min_gdp = state_avg_gdp_2010_to_2014.min()
+    min_gdp_states = state_avg_gdp_2010_to_2014[state_avg_gdp_2010_to_2014.eq(min_gdp)].index.tolist()
 
-    max_gdp = gdp_avg_df.max()
-    max_gdp_states = gdp_avg_df[gdp_avg_df.eq(max_gdp)].index.tolist()
+    max_gdp = state_avg_gdp_2010_to_2014.max()
+    max_gdp_states = state_avg_gdp_2010_to_2014[state_avg_gdp_2010_to_2014.eq(max_gdp)].index.tolist()
 
     # Print the results
     print(f"Minimum: {min_gdp:.2f} " f"State: {', '.join(min_gdp_states)}")
     print(f"Median: {median_gdp:.2f} " f"State: {', '.join(median_gdp_states)}")
     print(f"Maximum: {max_gdp:.2f} " f"State: {', '.join(max_gdp_states)}")
 
-def high_low_crude_rates_ttest(gdp_avg_df,df):
-    # Filter out the high avg GDP and low avg GDP states (> or < than the median)
-    median_gdp = gdp_avg_df.median()
-    high_gdp_states = gdp_avg_df[gdp_avg_df >= median_gdp].index
-    low_gdp_states = gdp_avg_df[gdp_avg_df < median_gdp].index
-    high_low_gdp = df[df['State'].isin(high_gdp_states.union(low_gdp_states))]
+def vis_two_avg_gdp_states(gdp_opioid, state1, state2):
+    # Select the two states to plot plotting
+    gdp_state1 = gdp_opioid[(gdp_opioid["State"] == state1)][["Year", "GDP_0101"]]
+    gdp_state2 = gdp_opioid[(gdp_opioid["State"] == state2)][["Year", "GDP_0101"]]
+    
+    # Create a line plot of the GDP over years for the two states
+    plt.plot(gdp_state1["Year"], gdp_state1["GDP_0101"], label= state1)
+    plt.plot(gdp_state2["Year"], gdp_state2["GDP_0101"], label= state2)
+    plt.xlabel("Year")
+    plt.ylabel("GDP")
+    plt.title("GDP over Years for {} and {}".format(state1, state2))
 
-    # Obtain the crude rate from states with high and low avg GDP
+    # x ticks format
+    years = gdp_opioid["Year"].unique()
+    plt.xticks(list(range(int(years.min()), int(years.max())+1)))
+    
+    plt.legend()
+    plt.savefig('figures/'+'Two_Avg_GDP_States')
+    plt.show()
+    
+def cal_print_t_test_CR(gdp_opioid, state1, state2):
+    #T test for Crude Rate between two states
+    t_stat, p_value = scipy.stats.ttest_ind(gdp_opioid[gdp_opioid['State']== state1]['Crude Rate'],
+                     gdp_opioid[gdp_opioid['State']== state2]['Crude Rate'],
+                     axis=0)
+    # Print results
+    print("T-statistic:", t_stat)
+    print("p-value:", p_value)
+    
+
+def cal_print_t_test_CR_for_two_groups(gdp_opioid):
+    # Calculate the average GDP for each state over 2010 to 2014
+    state_avg_gdp_2010_to_2014 = gdp_opioid.groupby('State')['GDP_0101'].mean()
+    
+    # Filter out the high avg GDP and low avg GDP states (> or < than the median)
+    median_gdp = state_avg_gdp_2010_to_2014.median()
+    high_gdp_states = state_avg_gdp_2010_to_2014[state_avg_gdp_2010_to_2014 >= median_gdp].index
+    low_gdp_states = state_avg_gdp_2010_to_2014[state_avg_gdp_2010_to_2014 < median_gdp].index
+    high_low_gdp = gdp_opioid[gdp_opioid['State'].isin(high_gdp_states.union(low_gdp_states))]
+
+    # Obtain the crude rate from high and low avg GDP from states.
     high_gdp_crude_rate = high_low_gdp.loc[high_low_gdp['State'].isin(high_gdp_states), 'Crude Rate']
     low_gdp_crude_rate = high_low_gdp.loc[high_low_gdp['State'].isin(low_gdp_states), 'Crude Rate']
-    
+
     # T-test
     t_stat_for_two_groups_states, p_value_for_two_groups_states = scipy.stats.ttest_ind(high_gdp_crude_rate, low_gdp_crude_rate)
-    
+
     # Print results
     print("T-statistic:", t_stat_for_two_groups_states)
     print("p-value:", p_value_for_two_groups_states)
