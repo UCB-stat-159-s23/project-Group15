@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Stat 159 Final Project - Group 15 &#8212; Analysis of Opioid Overdose Death Rate in Different States</title>
+    <title>Hypothesis Analysis &#8212; Analysis of Opioid Overdose Death Rate in Different States</title>
   
   
   
@@ -63,11 +63,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'main';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analysis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Preprocessing" href="preprocessing.html" />
-    <link rel="prev" title="Final Project - Group 15" href="README.html" />
+    <link rel="prev" title="Data Preprocessing" href="preprocessing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,11 +158,11 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Stat 159 Final Project - Group 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Stat 159 Final Project - Group 15</a></li>
 
 
 <li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Data Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Hypothesis Analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hypothesis Analysis</a></li>
 </ul>
 
     </div>
@@ -218,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group15.git/HEAD?labpath=main.ipynb/v2/gh/UCB-stat-159-s23/project-Group15/main?urlpath=tree/docs/main.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group15.git/HEAD?labpath=main.ipynb/v2/gh/UCB-stat-159-s23/project-Group15/main?urlpath=tree/docs/analysis.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/UCB-stat-159-s23/project-Group15/issues/new?title=Issue%20on%20page%20%2Fmain.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/UCB-stat-159-s23/project-Group15/issues/new?title=Issue%20on%20page%20%2Fanalysis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/main.ipynb" target="_blank"
+      <li><a href="_sources/analysis.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -378,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Stat 159 Final Project - Group 15</h1>
+    <h1>Hypothesis Analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,29 +387,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Stat 159 Final Project - Group 15</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-the-opioid-overdose-death-rate-in-different-states-of-the-u-s">Analysis of the Opioid Overdose Death Rate in Different States of the U.S.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-analysis">Initial Analysis:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-average-gdp-for-each-state-over-2010-2014">Visualization of Average GDP for Each State over 2010-2014:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">Find the minimum, median, and maximum avg GDP among states over 2010 to 2014:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state">Visualization of the Highest Average GDP State and the Lowest Average GDP State:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-conclusion">Rough Conclusion:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">How significant the differences are in crude rate of the states with various levels of economic development?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-analysis">Initial Analysis:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-conclusion">Rough Conclusion:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-analysis">Extended Analysis:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">Hypothesis Testing: High average GDP states vs. Low average GDP states</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-conclusion">Final Conclusion:</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-analysis">Extended Analysis:</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">Hypothesis Testing: High average GDP states vs. Low average GDP states</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-conclusion">Final Conclusion:</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contributions">Author Contributions</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -421,19 +412,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="stat-159-final-project-group-15">
-<h1>Stat 159 Final Project - Group 15<a class="headerlink" href="#stat-159-final-project-group-15" title="Permalink to this heading">#</a></h1>
-<section id="analysis-of-the-opioid-overdose-death-rate-in-different-states-of-the-u-s">
-<h2>Analysis of the Opioid Overdose Death Rate in Different States of the U.S.<a class="headerlink" href="#analysis-of-the-opioid-overdose-death-rate-in-different-states-of-the-u-s" title="Permalink to this heading">#</a></h2>
-<p><strong>Research Question:</strong> How significant the differences are in crude rate of the states with various levels of economic development?</p>
-<p><strong>Authors:</strong> Jennifer, Irene, Zac, Yi <br></p>
-</section>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Opioids are a class of drugs that include the illegal drug heroin, synthetic opioids such as fentanyl, and pain relievers available legally by prescription, such as oxycodone (OxyContin®), hydrocodone (Vicodin®), codeine, morphine, and many others (National Institution on Drug Abuse). While opioids can be effective at managing pain, they also carry a high risk of dependence, addiction, and overdose. In recent years, there has been a significant increase in opioid-related deaths and addiction in the United States, leading to a public health crisis known as the opioid epidemic.</p>
-<p>According to NSC Injury Facts, preventable opioid overdose deaths increased by 41% in 2020 and another 18% in 2021 which is possibly a result of the COVID-19 pandemic’s disruptions and stress. Among all age groups, individuals between the ages of 35 and 44 have experienced the most opioid overdose deaths, which reached 20,137 in number, representing a 20% increase from 2020 and a 73% increase from 2019. At present, about 71% of opioid overdose deaths are happening among individuals aged 25 to 54, and the number of deaths among people aged 55 and older is increasing rapidly. Children below the age of 15 account for only a small fraction of opioid-related deaths.</p>
-<p>The purpose of analyzing the opioid overdose death rate in different states of the U.S. is to determine whether there is a correlation between the economic status of a state and the rate of opioid overdose deaths.</p>
-<p>To investigate this, we will use hypothesis testing to determine if there is a significant difference in opioid overdose death rates between states with different economic statuses. We will collect data on opioid overdose deaths and economic indicators GDP for each state. We will then use statistical methods to analyze the data and test our hypothesis.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="hypothesis-analysis">
+<h1>Hypothesis Analysis<a class="headerlink" href="#hypothesis-analysis" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -459,7 +439,6 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
 <section id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -564,34 +543,11 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="eda">
-<h2>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h2>
-<p>In order to better understand the overall trends of crude rate of different states, we now create a visualization for the states with available data to see the change of crude rates from 2010 to 2014.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/08586f8201ba3daeade8159cc494b64b476e8a62b65dbf7688b63b04908eca0a.png" src="_images/08586f8201ba3daeade8159cc494b64b476e8a62b65dbf7688b63b04908eca0a.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/67ab62f70e9cb6d23a6a7670143b0c96442bf42e4bd4b37a61dda8f43382cfcc.png" src="_images/67ab62f70e9cb6d23a6a7670143b0c96442bf42e4bd4b37a61dda8f43382cfcc.png" />
-</div>
-</div>
-<p>From the visualization above, we can obviously see that some states have significant high crude rates compared to other states. Among those states with abnormal high rates, they have different changes in these 5 years. Some show an increasing trend, where as some display first decreasing and then increasing trend. The situation is quite complex to analyze as a whole. Therefore, we are going to compare states by states rather than finding a pattern among all of them.</p>
+<section id="how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">
+<h3>How significant the differences are in crude rate of the states with various levels of economic development?<a class="headerlink" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="initial-analysis">
-<h2>Initial Analysis:<a class="headerlink" href="#initial-analysis" title="Permalink to this heading">#</a></h2>
+<h3>Initial Analysis:<a class="headerlink" href="#initial-analysis" title="Permalink to this heading">#</a></h3>
 <p>In order to compare the states with different levels of economic development, we decided to use a T-test for the state with the lowest GDP on average from 2010 to 2014, and the state with the highest GDP on average from 2010 to 2014 to see if there is a siginificant difference in the crude rate between the states with different levels of economic development. The assumption we made include the following:</p>
 <ul class="simple">
 <li><p>large sample size is used</p></li>
@@ -599,8 +555,6 @@ document.write(`
 <li><p>the data collected follows a continuous or ordinal scale</p></li>
 <li><p>the data, when plotted, results in a normal distribution, bell-shaped distribution curve</p></li>
 </ul>
-<section id="visualization-of-average-gdp-for-each-state-over-2010-2014">
-<h3>Visualization of Average GDP for Each State over 2010-2014:<a class="headerlink" href="#visualization-of-average-gdp-for-each-state-over-2010-2014" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy the merged dataset and use it for the analysis part</span>
@@ -613,7 +567,17 @@ document.write(`
 <span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">=</span> <span class="n">gdp_opioid_for_analysis</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="c1"># Plot</span>
-<span class="n">utils</span><span class="o">.</span><span class="n">vis_avg_gdp_for_each_state</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
+
+<span class="n">state_avg_gdp_sorted</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">state_avg_gdp_sorted</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">state_avg_gdp_sorted</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average GPD&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;States&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average GDP Value for Each State over 2010-2014&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/&#39;</span><span class="o">+</span><span class="s1">&#39;Avg_GDP_for_Each_State_Over_Years&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -621,12 +585,23 @@ document.write(`
 <img alt="_images/8062831c8d4254438c6e22716a47bf6efb8e243c006d8f5edbad0490c06a53b1.png" src="_images/8062831c8d4254438c6e22716a47bf6efb8e243c006d8f5edbad0490c06a53b1.png" />
 </div>
 </div>
-</section>
-<section id="find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">
-<h3>Find the minimum, median, and maximum avg GDP among states over 2010 to 2014:<a class="headerlink" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014" title="Permalink to this heading">#</a></h3>
+<p>Find the minimum, median, and maximum avg GDP among states over 2010 to 2014:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_min_median_max_gdp</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Find the Minimum, Median, and Maximum avg GDP among states over 2010 to 2014</span>
+<span class="n">median_gdp</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="p">[</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">median_gdp</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="n">min_gdp</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">min_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="p">[</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">min_gdp</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="n">max_gdp</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">max_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="p">[</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">max_gdp</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># Print the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Minimum: </span><span class="si">{</span><span class="n">min_gdp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;State: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">min_gdp_states</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Median: </span><span class="si">{</span><span class="n">median_gdp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;State: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">median_gdp_states</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum: </span><span class="si">{</span><span class="n">max_gdp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="sa">f</span><span class="s2">&quot;State: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">max_gdp_states</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -638,12 +613,27 @@ Maximum: 2129273.11 State: California
 </div>
 </div>
 </div>
-</section>
-<section id="visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state">
-<h3>Visualization of the Highest Average GDP State and the Lowest Average GDP State:<a class="headerlink" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state" title="Permalink to this heading">#</a></h3>
+<p>Visualization of the Highest Average GDP State and the Lowest Average GDP State:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">vis_two_avg_gdp_states</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">,</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the two states to plot plotting</span>
+<span class="n">gdp_state1</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="p">[(</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s2">&quot;State&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">)][[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;GDP_0101&quot;</span><span class="p">]]</span>
+<span class="n">gdp_state2</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="p">[(</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s2">&quot;State&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;California&quot;</span><span class="p">)][[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;GDP_0101&quot;</span><span class="p">]]</span>
+
+<span class="c1"># Create a line plot of the GDP over years for the two states</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gdp_state1</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">gdp_state1</span><span class="p">[</span><span class="s2">&quot;GDP_0101&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gdp_state2</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">gdp_state2</span><span class="p">[</span><span class="s2">&quot;GDP_0101&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span> <span class="s2">&quot;California&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;GDP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP over Years for </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Vermont&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">))</span>
+
+<span class="c1"># x ticks format</span>
+<span class="n">years</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">years</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">int</span><span class="p">(</span><span class="n">years</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/&#39;</span><span class="o">+</span><span class="s1">&#39;Two_Avg_GDP_States&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -651,19 +641,24 @@ Maximum: 2129273.11 State: California
 <img alt="_images/960a051bd7ce4e8f67b0d8ac3818166fd7f569a58645d96926abdfad9696448b.png" src="_images/960a051bd7ce4e8f67b0d8ac3818166fd7f569a58645d96926abdfad9696448b.png" />
 </div>
 </div>
-</section>
 <section id="hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">
-<h3>Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:<a class="headerlink" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state" title="Permalink to this heading">#</a></h3>
+<h4>Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:<a class="headerlink" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state" title="Permalink to this heading">#</a></h4>
 <p><span class="math notranslate nohighlight">\( H0 \)</span> = There is no significant difference in the crude rate between California and Vermont.</p>
 <p><span class="math notranslate nohighlight">\( H1 \)</span> = There is a significant difference in the crude rate between California and Vermont.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermont&#39;</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#T test for Crude Rate between two states</span>
+<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">==</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">][</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">],</span>
+                 <span class="n">gdp_opioid</span><span class="p">[</span><span class="n">gdp_opioid</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">==</span> <span class="s2">&quot;California&quot;</span><span class="p">][</span><span class="s1">&#39;Crude Rate&#39;</span><span class="p">],</span>
+                 <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Print results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T-statistic:&quot;</span><span class="p">,</span> <span class="n">t_stat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value:&quot;</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-statistic: -5.145630229646416
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-statistic: 5.145630229646416
 p-value: 0.0008790286706211422
 </pre></div>
 </div>
@@ -671,21 +666,38 @@ p-value: 0.0008790286706211422
 </div>
 </section>
 <section id="rough-conclusion">
-<h3>Rough Conclusion:<a class="headerlink" href="#rough-conclusion" title="Permalink to this heading">#</a></h3>
+<h4>Rough Conclusion:<a class="headerlink" href="#rough-conclusion" title="Permalink to this heading">#</a></h4>
 <p>The mean crude rate of California is significantly lower than the mean crude rate of Vermont, which indicates that the state with high GDP might have the lower crude rate than the state with low GDP. However, this is not strong and objective enough since it’s just the comparation between two states.</p>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="extended-analysis">
-<h1>Extended Analysis:<a class="headerlink" href="#extended-analysis" title="Permalink to this heading">#</a></h1>
+<section id="extended-analysis">
+<h3>Extended Analysis:<a class="headerlink" href="#extended-analysis" title="Permalink to this heading">#</a></h3>
 <p>In the above analysis, there are only two states (the highest and the lowest average GDP over 2010 to 2014) were compared. In the following process, we are going to split the states into two parts, one is the states with the higher average GDP, the other one is the states with the lower average GDP. We will conduct the t-test to compare the mean values of the “Crude Rate” between these two parts to see if there is a significant diffference.</p>
 <section id="hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">
-<h2>Hypothesis Testing: High average GDP states vs. Low average GDP states<a class="headerlink" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states" title="Permalink to this heading">#</a></h2>
+<h4>Hypothesis Testing: High average GDP states vs. Low average GDP states<a class="headerlink" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states" title="Permalink to this heading">#</a></h4>
 <p><span class="math notranslate nohighlight">\( H0 \)</span> = There is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
 <p><span class="math notranslate nohighlight">\( H1 \)</span> = There is a significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR_for_two_groups</span><span class="p">(</span><span class="n">gdp_opioid_for_analysis</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the average GDP for each state over 2010 to 2014</span>
+<span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">=</span> <span class="n">gdp_opioid_for_analysis</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Filter out the high avg GDP and low avg GDP states (&gt; or &lt; than the median)</span>
+<span class="n">median_gdp</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">high_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="p">[</span><span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">&gt;=</span> <span class="n">median_gdp</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">low_gdp_states</span> <span class="o">=</span> <span class="n">state_avg_gdp_2010_to_2014</span><span class="p">[</span><span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">&lt;</span> <span class="n">median_gdp</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">high_low_gdp</span> <span class="o">=</span> <span class="n">gdp_opioid_for_analysis</span><span class="p">[</span><span class="n">gdp_opioid_for_analysis</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">high_gdp_states</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">low_gdp_states</span><span class="p">))]</span>
+
+<span class="c1"># Obtain the crude rate from high and low avg GDP from states.</span>
+<span class="n">high_gdp_crude_rate</span> <span class="o">=</span> <span class="n">high_low_gdp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">high_low_gdp</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">high_gdp_states</span><span class="p">),</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">]</span>
+<span class="n">low_gdp_crude_rate</span> <span class="o">=</span> <span class="n">high_low_gdp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">high_low_gdp</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">low_gdp_states</span><span class="p">),</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">]</span>
+
+<span class="c1"># T-test</span>
+<span class="n">t_stat_for_two_groups_states</span><span class="p">,</span> <span class="n">p_value_for_two_groups_states</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">high_gdp_crude_rate</span><span class="p">,</span> <span class="n">low_gdp_crude_rate</span><span class="p">)</span>
+
+<span class="c1"># Print results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T-statistic:&quot;</span><span class="p">,</span> <span class="n">t_stat_for_two_groups_states</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value:&quot;</span><span class="p">,</span> <span class="n">p_value_for_two_groups_states</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -697,18 +709,13 @@ p-value: 0.0004532330883314629
 </div>
 </div>
 </section>
+</section>
 <section id="final-conclusion">
-<h2>Final Conclusion:<a class="headerlink" href="#final-conclusion" title="Permalink to this heading">#</a></h2>
+<h3>Final Conclusion:<a class="headerlink" href="#final-conclusion" title="Permalink to this heading">#</a></h3>
 <p>We found a T-statistic of -3.55 and a p-value of 0.00045 based on the output. The p-value is less than 0.05, which indicates that we reject the null hypothesis that there is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP.</p>
 <p>Therefore, we concluded that there is a statistically significant difference in the crude rate between these two groups of states. The t-statistic indicates that the crude rate of the states with higher average GDP is higher than the states with lower average GDP.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="author-contributions">
-<h1>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this heading">#</a></h1>
-<p>Jenny:</p>
-<p>Zac:</p>
-<p>Irene:</p>
-<p>Yi:</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -743,22 +750,13 @@ p-value: 0.0004532330883314629
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="README.html"
+       href="preprocessing.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Final Project - Group 15</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="preprocessing.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Data Preprocessing</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -778,29 +776,21 @@ p-value: 0.0004532330883314629
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Stat 159 Final Project - Group 15</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-the-opioid-overdose-death-rate-in-different-states-of-the-u-s">Analysis of the Opioid Overdose Death Rate in Different States of the U.S.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-analysis">Initial Analysis:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-average-gdp-for-each-state-over-2010-2014">Visualization of Average GDP for Each State over 2010-2014:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">Find the minimum, median, and maximum avg GDP among states over 2010 to 2014:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state">Visualization of the Highest Average GDP State and the Lowest Average GDP State:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-conclusion">Rough Conclusion:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">How significant the differences are in crude rate of the states with various levels of economic development?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-analysis">Initial Analysis:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-conclusion">Rough Conclusion:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-analysis">Extended Analysis:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">Hypothesis Testing: High average GDP states vs. Low average GDP states</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-conclusion">Final Conclusion:</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-analysis">Extended Analysis:</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">Hypothesis Testing: High average GDP states vs. Low average GDP states</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-conclusion">Final Conclusion:</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contributions">Author Contributions</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
