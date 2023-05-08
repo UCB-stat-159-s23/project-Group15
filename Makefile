@@ -12,9 +12,9 @@ all:
 env :
 	source /srv/conda/etc/profile.d/conda.sh
 	conda env create -f environment.yml 
-	conda activate final
+	conda activate Opioid
 	conda install ipykernel
-	python -m ipykernel install --user --name final --display-name "IPython - final"
+	python -m ipykernel install --user --name Opioid --display-name "IPython - Opioid"
 	
 .PHONY: html
 html:

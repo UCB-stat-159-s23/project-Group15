@@ -1,4 +1,4 @@
-name: final
+name: Opioid
 channels:
   - conda-forge
   - defaults
@@ -8,5 +8,5 @@ dependencies:
   - numpy
   - matplotlib
   - scipy
+  - seaborn
 
-prefix: /home/jovyan/envs/final
