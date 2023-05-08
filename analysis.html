@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Hypothesis Analysis &#8212; Analysis of Opioid Overdose Death Rate in Different States</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -68,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Data Preprocessing" href="preprocessing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -413,7 +412,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hypothesis-analysis">
-<h1>Hypothesis Analysis<a class="headerlink" href="#hypothesis-analysis" title="Permalink to this heading">#</a></h1>
+<h1>Hypothesis Analysis<a class="headerlink" href="#hypothesis-analysis" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -425,22 +424,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">utils</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_opioid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/gdp_opioid.csv&#39;</span><span class="p">)</span>
@@ -544,10 +530,10 @@ document.write(`
 </div></div></div>
 </div>
 <section id="how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development">
-<h3>How significant the differences are in crude rate of the states with various levels of economic development?<a class="headerlink" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development" title="Permalink to this heading">#</a></h3>
+<h3>How significant the differences are in crude rate of the states with various levels of economic development?<a class="headerlink" href="#how-significant-the-differences-are-in-crude-rate-of-the-states-with-various-levels-of-economic-development" title="Permalink to this headline">#</a></h3>
 </section>
 <section id="initial-analysis">
-<h3>Initial Analysis:<a class="headerlink" href="#initial-analysis" title="Permalink to this heading">#</a></h3>
+<h3>Initial Analysis:<a class="headerlink" href="#initial-analysis" title="Permalink to this headline">#</a></h3>
 <p>In order to compare the states with different levels of economic development, we decided to use a T-test for the state with the lowest GDP on average from 2010 to 2014, and the state with the highest GDP on average from 2010 to 2014 to see if there is a siginificant difference in the crude rate between the states with different levels of economic development. The assumption we made include the following:</p>
 <ul class="simple">
 <li><p>large sample size is used</p></li>
@@ -642,7 +628,7 @@ Maximum: 2129273.11 State: California
 </div>
 </div>
 <section id="hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">
-<h4>Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:<a class="headerlink" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state" title="Permalink to this heading">#</a></h4>
+<h4>Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:<a class="headerlink" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state" title="Permalink to this headline">#</a></h4>
 <p><span class="math notranslate nohighlight">\( H0 \)</span> = There is no significant difference in the crude rate between California and Vermont.</p>
 <p><span class="math notranslate nohighlight">\( H1 \)</span> = There is a significant difference in the crude rate between California and Vermont.</p>
 <div class="cell docutils container">
@@ -666,15 +652,15 @@ p-value: 0.0008790286706211422
 </div>
 </section>
 <section id="rough-conclusion">
-<h4>Rough Conclusion:<a class="headerlink" href="#rough-conclusion" title="Permalink to this heading">#</a></h4>
+<h4>Rough Conclusion:<a class="headerlink" href="#rough-conclusion" title="Permalink to this headline">#</a></h4>
 <p>The mean crude rate of California is significantly lower than the mean crude rate of Vermont, which indicates that the state with high GDP might have the lower crude rate than the state with low GDP. However, this is not strong and objective enough since it’s just the comparation between two states.</p>
 </section>
 </section>
 <section id="extended-analysis">
-<h3>Extended Analysis:<a class="headerlink" href="#extended-analysis" title="Permalink to this heading">#</a></h3>
+<h3>Extended Analysis:<a class="headerlink" href="#extended-analysis" title="Permalink to this headline">#</a></h3>
 <p>In the above analysis, there are only two states (the highest and the lowest average GDP over 2010 to 2014) were compared. In the following process, we are going to split the states into two parts, one is the states with the higher average GDP, the other one is the states with the lower average GDP. We will conduct the t-test to compare the mean values of the “Crude Rate” between these two parts to see if there is a significant diffference.</p>
 <section id="hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">
-<h4>Hypothesis Testing: High average GDP states vs. Low average GDP states<a class="headerlink" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states" title="Permalink to this heading">#</a></h4>
+<h4>Hypothesis Testing: High average GDP states vs. Low average GDP states<a class="headerlink" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states" title="Permalink to this headline">#</a></h4>
 <p><span class="math notranslate nohighlight">\( H0 \)</span> = There is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
 <p><span class="math notranslate nohighlight">\( H1 \)</span> = There is a significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
 <div class="cell docutils container">
@@ -711,7 +697,7 @@ p-value: 0.0004532330883314629
 </section>
 </section>
 <section id="final-conclusion">
-<h3>Final Conclusion:<a class="headerlink" href="#final-conclusion" title="Permalink to this heading">#</a></h3>
+<h3>Final Conclusion:<a class="headerlink" href="#final-conclusion" title="Permalink to this headline">#</a></h3>
 <p>We found a T-statistic of -3.55 and a p-value of 0.00045 based on the output. The p-value is less than 0.05, which indicates that we reject the null hypothesis that there is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP.</p>
 <p>Therefore, we concluded that there is a statistically significant difference in the crude rate between these two groups of states. The t-statistic indicates that the crude rate of the states with higher average GDP is higher than the states with lower average GDP.</p>
 </section>
