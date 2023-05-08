@@ -441,7 +441,8 @@ document.write(`
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">plots</span>
+<span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">computations</span>
 </pre></div>
 </div>
 </div>
@@ -452,7 +453,8 @@ document.write(`
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">scipy.stats</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">plots</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">computations</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
 </pre></div>
@@ -571,7 +573,7 @@ document.write(`
 <p>In order to better understand the overall trends of crude rate of different states, we now create a visualization for the states with available data to see the change of crude rates from 2010 to 2014.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -581,7 +583,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -608,7 +610,7 @@ document.write(`
 <span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="c1"># Plot</span>
-<span class="n">utils</span><span class="o">.</span><span class="n">vis_avg_gdp_for_each_state</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">vis_avg_gdp_for_each_state</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -621,7 +623,7 @@ document.write(`
 <h3>Find the minimum, median, and maximum avg GDP among states over 2010 to 2014:<a class="headerlink" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_min_median_max_gdp</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">computations</span><span class="o">.</span><span class="n">cal_print_min_median_max_gdp</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -638,7 +640,7 @@ Maximum: 2129273.11 State: California
 <h3>Visualization of the Highest Average GDP State and the Lowest Average GDP State:<a class="headerlink" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">vis_two_avg_gdp_states</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">vis_two_avg_gdp_states</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -653,7 +655,7 @@ Maximum: 2129273.11 State: California
 <p><span class="math notranslate nohighlight">\( H_1 \)</span> = There is a significant difference in the crude rate between California and Vermont.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermont&#39;</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">computations</span><span class="o">.</span><span class="n">cal_print_t_test_CR</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermont&#39;</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -680,7 +682,7 @@ p-value: 0.0008790286706211422
 <p><span class="math notranslate nohighlight">\( H_1 \)</span> = There is a significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">cal_print_t_test_CR_for_two_groups</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">computations</span><span class="o">.</span><span class="n">cal_print_t_test_CR_for_two_groups</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -700,9 +702,9 @@ p-value: 0.0004532330883314629
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="author-contributions">
 <h1>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this heading">#</a></h1>
-<p>Jenny: Set up repository structure, made package installable, wrote docstrings in <a class="reference external" href="http://utils.py">utils.py</a>, and merged two dataframes (in preprocessing). Assisted in functional structure of code &amp; testing by moving functions &amp; plotting code to <a class="reference external" href="http://utils.py">utils.py</a>. Assisted in analysis notebooks &amp; supporting code by helping to organize analysis notebooks.</p>
+<p>Jenny: Set up repository structure, made package installable, wrote docstrings in <a class="reference external" href="http://computations.py">computations.py</a> and <a class="reference external" href="http://plots.py">plots.py</a>, and merged two dataframes (in preprocessing). Assisted in functional structure of code &amp; testing by moving functions &amp; plotting code to <a class="reference external" href="http://computations.py">computations.py</a> and <a class="reference external" href="http://plots.py">plots.py</a>. Assisted in analysis notebooks &amp; supporting code by helping to organize analysis notebooks.</p>
 <p>Zac:</p>
-<p>Irene:</p>
+<p>Irene: Searched for the datasets and helped with coming up the research question. Wrote the viz function in <code class="docutils literal notranslate"><span class="pre">opioidtools.plots</span></code> for EDA and also added EDA descriptions. Added tests for <code class="docutils literal notranslate"><span class="pre">opioidtools</span></code> and rearranged <code class="docutils literal notranslate"><span class="pre">opioidtools</span></code>’s structure.</p>
 <p>Yi: Wrote the introduction of main.ipynb, created Github pages and actions, created makefile, environment, binder and built JupyterBook. Assisted in organizing notebooks.</p>
 <p>All members aided in writing the <a class="reference external" href="http://README.md">README.md</a>.</p>
 </section>

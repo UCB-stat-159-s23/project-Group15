@@ -30,19 +30,20 @@ Cell [0;32mIn[1], line 4[0m
 [0;32m----> 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mopioidtools[39;00m [38;5;28;01mimport[39;00m utils
 
 File [0;32m~/work/project-Group15/project-Group15/opioidtools/__init__.py:1[0m
-[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mplots[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
+[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mcomputations[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m
 
-File [0;32m~/work/project-Group15/project-Group15/opioidtools/utils.py:6[0m
-[1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m pyplot [38;5;28;01mas[39;00m plt
-[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m
-[0;32m----> 6[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m
-[1;32m      8[0m [38;5;28;01mdef[39;00m [38;5;21mto_numeric[39m(df, col_name):
-[1;32m      9[0m [38;5;250m    [39m[38;5;124;03m"""converts column of dataframe to numeric[39;00m
-[1;32m     10[0m [38;5;124;03m    Parameters[39;00m
-[1;32m     11[0m [38;5;124;03m    ----------[39;00m
+File [0;32m~/work/project-Group15/project-Group15/opioidtools/plots.py:5[0m
+[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mmatplotlib[39;00m [38;5;28;01mimport[39;00m pyplot [38;5;28;01mas[39;00m plt
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m
+[0;32m----> 5[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m
+[1;32m      7[0m [38;5;28;01mdef[39;00m [38;5;21mviz[39m(df, col_name):
+[1;32m      8[0m [38;5;250m    [39m[38;5;124;03m"""creates pointplot of column for each state in dataframe[39;00m
+[1;32m      9[0m [38;5;124;03m    Parameters[39;00m
+[1;32m     10[0m [38;5;124;03m    ----------[39;00m
 [0;32m   (...)[0m
-[1;32m     15[0m [38;5;124;03m        The column to convert to numeric[39;00m
-[1;32m     16[0m [38;5;124;03m    """[39;00m
+[1;32m     14[0m [38;5;124;03m        The numeric column to plot as the y-value[39;00m
+[1;32m     15[0m [38;5;124;03m        """[39;00m
 
 [0;31mModuleNotFoundError[0m: No module named 'scipy'
 
