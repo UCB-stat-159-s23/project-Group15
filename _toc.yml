@@ -6,4 +6,3 @@ root: README.md
 chapters:
 - file: main
 - file: preprocessing
-- file: analysis

@@ -14,7 +14,7 @@ env :
 all:
 	jupyter execute main.ipynb
 	jupyter execute preprocessing.ipynb
-	jupyter execute analysis.ipynb
+
 
 
 	
