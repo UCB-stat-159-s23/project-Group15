@@ -8,7 +8,6 @@ This project explores how significant the differences between crude rate of stat
 
 The [preprocessing](preprocessing.ipynb) notebook includes the detailed data preprocessing and cleaning process and explains what is included in the data frame we are using for analysis.
 
-The [analysis](analysis.ipynb) notebook includes the detailed process of the hypothesis analysis conducted to answer our research question.
 
 
 ```python
