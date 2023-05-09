@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Stat 159 Final Project - Group 15 &#8212; Analysis of Opioid Overdose Death Rate in Different States</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Preprocessing" href="preprocessing.html" />
+    <link rel="prev" title="Final Project - Group 15" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Final Project - Group 15
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Stat 159 Final Project - Group 15</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Data Preprocessing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group15.git/HEAD?labpath=main.ipynb/v2/gh/UCB-stat-159-s23/project-Group15/main?urlpath=tree/docs/main.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UCB-stat-159-s23/project-Group15" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UCB-stat-159-s23/project-Group15/issues/new?title=Issue%20on%20page%20%2Fmain.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/main.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Stat 159 Final Project - Group 15</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Stat 159 Final Project - Group 15</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-the-opioid-overdose-death-rate-in-different-states-of-the-u-s">Analysis of the Opioid Overdose Death Rate in Different States of the U.S.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-analysis">Initial Analysis:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-average-gdp-for-each-state-over-2010-2014">Visualization of Average GDP for Each State over 2010-2014:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">Find the minimum, median, and maximum avg GDP among states over 2010 to 2014:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state">Visualization of the Highest Average GDP State and the Lowest Average GDP State:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-conclusion">Rough Conclusion:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-analysis">Extended Analysis:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">Hypothesis Testing: High average GDP states vs. Low average GDP states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-conclusion">Final Conclusion:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contributions">Author Contributions</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="stat-159-final-project-group-15">
+<h1>Stat 159 Final Project - Group 15<a class="headerlink" href="#stat-159-final-project-group-15" title="Permalink to this headline">#</a></h1>
+<section id="analysis-of-the-opioid-overdose-death-rate-in-different-states-of-the-u-s">
+<h2>Analysis of the Opioid Overdose Death Rate in Different States of the U.S.<a class="headerlink" href="#analysis-of-the-opioid-overdose-death-rate-in-different-states-of-the-u-s" title="Permalink to this headline">#</a></h2>
+<p><strong>Research Question:</strong> How significant the differences are in crude rate of the states with various levels of economic development?</p>
+<p><strong>Authors:</strong> Jennifer, Irene, Zac, Yi <br></p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>Opioids are a class of drugs that include the illegal drug heroin, synthetic opioids such as fentanyl, and pain relievers available legally by prescription, such as oxycodone (OxyContin®), hydrocodone (Vicodin®), codeine, morphine, and many others (National Institution on Drug Abuse). While opioids can be effective at managing pain, they also carry a high risk of dependence, addiction, and overdose. In recent years, there has been a significant increase in opioid-related deaths and addiction in the United States, leading to a public health crisis known as the opioid epidemic.</p>
+<p>According to NSC Injury Facts, preventable opioid overdose deaths increased by 41% in 2020 and another 18% in 2021 which is possibly a result of the COVID-19 pandemic’s disruptions and stress. Among all age groups, individuals between the ages of 35 and 44 have experienced the most opioid overdose deaths, which reached 20,137 in number, representing a 20% increase from 2020 and a 73% increase from 2019. At present, about 71% of opioid overdose deaths are happening among individuals aged 25 to 54, and the number of deaths among people aged 55 and older is increasing rapidly. Children below the age of 15 account for only a small fraction of opioid-related deaths.</p>
+<p>The purpose of analyzing the opioid overdose death rate in different states of the U.S. is to determine whether there is a correlation between the economic status of a state and the rate of opioid overdose deaths.</p>
+<p>To investigate this, we will use hypothesis testing to determine if there is a significant difference in opioid overdose death rates between states with different economic statuses. We will collect data on opioid overdose deaths and economic indicators GDP for each state. We will then use statistical methods to analyze the data and test our hypothesis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">plots</span>
+<span class="kn">from</span> <span class="nn">opioidtools</span> <span class="kn">import</span> <span class="n">computations</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import preprocessed data from data directory</span>
+<span class="n">gdp_opioid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/gdp_opioid.csv&#39;</span><span class="p">)</span>
+<span class="n">gdp_opioid</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Series ID</th>
+      <th>State</th>
+      <th>Region Code</th>
+      <th>GDP_0101</th>
+      <th>Deaths</th>
+      <th>Population</th>
+      <th>Crude Rate</th>
+      <th>Prescriptions Dispensed by US Retailers in that year (millions)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2010</td>
+      <td>ALNQGSP</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>177249.150</td>
+      <td>194.0</td>
+      <td>4779736.0</td>
+      <td>4.1</td>
+      <td>210.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2011</td>
+      <td>ALNQGSP</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>183916.625</td>
+      <td>180.0</td>
+      <td>4802740.0</td>
+      <td>3.7</td>
+      <td>219.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2012</td>
+      <td>ALNQGSP</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>189245.525</td>
+      <td>175.0</td>
+      <td>4822023.0</td>
+      <td>3.6</td>
+      <td>217.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2013</td>
+      <td>ALNQGSP</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>194786.925</td>
+      <td>175.0</td>
+      <td>4833722.0</td>
+      <td>3.6</td>
+      <td>207.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2014</td>
+      <td>ALNQGSP</td>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>197406.850</td>
+      <td>282.0</td>
+      <td>4849377.0</td>
+      <td>5.8</td>
+      <td>196.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="eda">
+<h2>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">#</a></h2>
+<p>In order to better understand the overall trends of crude rate of different states, we now create a visualization for the states with available data to see the change of crude rates from 2010 to 2014.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3803f7b04dd5c8bc86c84fabfe0ab02320cc9470a74c0b01141ebb602dface84.png" src="_images/3803f7b04dd5c8bc86c84fabfe0ab02320cc9470a74c0b01141ebb602dface84.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">viz</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;Crude Rate&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/946c4789ac34fa7b62dbc07c2ed6a16a7a0a1bfb56383c70486c8ad5b285a126.png" src="_images/946c4789ac34fa7b62dbc07c2ed6a16a7a0a1bfb56383c70486c8ad5b285a126.png" />
+</div>
+</div>
+<p>From the visualization above, we can obviously see that some states have significant high crude rates compared to other states. Among those states with abnormal high rates, they have different changes over these 5 years. Some show an increasing trend, whereas some display first decreasing and then increasing trend. The situation is quite complex to analyze as a whole and there are too many states to individually compare each of them (this would also lead to multiple testing errors). Therefore, we are instead going to compare the states with the highest average GDP and lowest average GDP across 2010-2014.</p>
+</section>
+<section id="initial-analysis">
+<h2>Initial Analysis:<a class="headerlink" href="#initial-analysis" title="Permalink to this headline">#</a></h2>
+<p>In order to compare the states with different levels of economic development, we decided to use a T-test for the state with the lowest GDP on average from 2010 to 2014, and the state with the highest GDP on average from 2010 to 2014 to see if there is a siginificant difference in the crude rate. The assumptions we made include the following:</p>
+<ul class="simple">
+<li><p>large sample size is used</p></li>
+<li><p>each state of crude rate and other data relevant to opioid overdose deaths is independent of each other</p></li>
+<li><p>the data collected follows a continuous or ordinal scale</p></li>
+<li><p>the data, when plotted, results in a normal distribution, bell-shaped distribution curve</p></li>
+</ul>
+<section id="visualization-of-average-gdp-for-each-state-over-2010-2014">
+<h3>Visualization of Average GDP for Each State over 2010-2014:<a class="headerlink" href="#visualization-of-average-gdp-for-each-state-over-2010-2014" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the average GDP for each state over 2010 to 2014 (GDP as of 1/1 of each year)</span>
+<span class="n">state_avg_gdp_2010_to_2014</span> <span class="o">=</span> <span class="n">gdp_opioid</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;State&#39;</span><span class="p">)[</span><span class="s1">&#39;GDP_0101&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">vis_avg_gdp_for_each_state</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/50ade14411edb790c48d66bae832df491db9993f4e841008e65bfff9fd1ec73c.png" src="_images/50ade14411edb790c48d66bae832df491db9993f4e841008e65bfff9fd1ec73c.png" />
+</div>
+</div>
+</section>
+<section id="find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">
+<h3>Find the minimum, median, and maximum avg GDP among states over 2010 to 2014:<a class="headerlink" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">computations</span><span class="o">.</span><span class="n">cal_print_min_median_max_gdp</span><span class="p">(</span><span class="n">state_avg_gdp_2010_to_2014</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum: 28891.08 State: Vermont
+Median: 178983.00 State: South Carolina
+Maximum: 2129273.11 State: California
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state">
+<h3>Visualization of the Highest Average GDP State and the Lowest Average GDP State:<a class="headerlink" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span><span class="o">.</span><span class="n">vis_two_avg_gdp_states</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">,</span> <span class="s2">&quot;California&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/960a051bd7ce4e8f67b0d8ac3818166fd7f569a58645d96926abdfad9696448b.png" src="_images/960a051bd7ce4e8f67b0d8ac3818166fd7f569a58645d96926abdfad9696448b.png" />
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">
+<h3>Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:<a class="headerlink" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\( H_0 \)</span> = There is no significant difference in the crude rate between California and Vermont.</p>
+<p><span class="math notranslate nohighlight">\( H_1 \)</span> = There is a significant difference in the crude rate between California and Vermont.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">computations</span><span class="o">.</span><span class="n">cal_print_t_test_CR</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermont&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-statistic: -5.145630229646416
+p-value: 0.0008790286706211422
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rough-conclusion">
+<h3>Rough Conclusion:<a class="headerlink" href="#rough-conclusion" title="Permalink to this headline">#</a></h3>
+<p>The mean crude rate of California is significantly lower than the mean crude rate of Vermont, which indicates that the state with high GDP might have the lower crude rate than the state with low GDP. However, this is not strong and objective enough since it’s just the comparation between two states.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="extended-analysis">
+<h1>Extended Analysis:<a class="headerlink" href="#extended-analysis" title="Permalink to this headline">#</a></h1>
+<p>In the above analysis, only the crude rate of two states (the highest and the lowest average GDP over 2010 to 2014) were compared. Now we will compare the crude rate of two <span class="math notranslate nohighlight">\(\textbf{groups}\)</span> of states: states with higher average GDP and states with lower average GDP. We will conduct a t-test to compare the mean values of the “Crude Rate” between these two groups to see if there is a significant difference.</p>
+<section id="hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">
+<h2>Hypothesis Testing: High average GDP states vs. Low average GDP states<a class="headerlink" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states" title="Permalink to this headline">#</a></h2>
+<p><span class="math notranslate nohighlight">\( H_0 \)</span> = There is no significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
+<p><span class="math notranslate nohighlight">\( H_1 \)</span> = There is a significant difference in the crude rate between the states with high average GDP and the states with lower average GDP</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">computations</span><span class="o">.</span><span class="n">cal_print_t_test_CR_for_two_groups</span><span class="p">(</span><span class="n">gdp_opioid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-statistic: -3.5543687730571776
+p-value: 0.0004532330883314629
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="final-conclusion">
+<h2>Final Conclusion:<a class="headerlink" href="#final-conclusion" title="Permalink to this headline">#</a></h2>
+<p>Based on the results of the t-test, we can reject the null hypothesis that there is no significant difference in the crude rate between the states with higher average GDP and the states with lower average GDP, and we accept the alternative hypothesis.</p>
+<p>Therefore, we conclude that there is a statistically significant difference in the crude rate between these two groups of states, and the t-statistic value -3.55 indicates that the mean crude rate for the states with higher average GDP is lower than the the states with lower average GDP.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="author-contributions">
+<h1>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this headline">#</a></h1>
+<p>Jenny: Set up repository structure, made package installable, wrote docstrings in <a class="reference external" href="http://computations.py">computations.py</a> and <a class="reference external" href="http://plots.py">plots.py</a>, and merged two dataframes (in preprocessing). Assisted in functional structure of code &amp; testing by moving functions &amp; plotting code to <a class="reference external" href="http://computations.py">computations.py</a> and <a class="reference external" href="http://plots.py">plots.py</a>. Assisted in analysis notebooks &amp; supporting code by helping to organize analysis notebooks.</p>
+<p>Zac:Wrote the initial and extended analyses including analyzing the problome, setting up two hypothesis tests, writing two t-tests functions in <code class="docutils literal notranslate"><span class="pre">opioidtools.computations</span></code>, two plotting functions in <code class="docutils literal notranslate"><span class="pre">opioidtools.plots</span></code>, and final conclusion. Assisted in moving functions to the .py package files.</p>
+<p>Irene: Searched for the datasets and helped with coming up the research question. Wrote the viz function in <code class="docutils literal notranslate"><span class="pre">opioidtools.plots</span></code> for EDA and also added EDA descriptions. Added tests for <code class="docutils literal notranslate"><span class="pre">opioidtools</span></code> and rearranged <code class="docutils literal notranslate"><span class="pre">opioidtools</span></code>’s structure.</p>
+<p>Yi: Wrote the introduction of main.ipynb, created Github pages and actions, created makefile, environment, binder and built JupyterBook. Assisted in organizing notebooks.</p>
+<p>All members aided in writing the <a class="reference external" href="http://README.md">README.md</a>.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Final Project - Group 15</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="preprocessing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Preprocessing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Stat 159 Final Project - Group 15</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-the-opioid-overdose-death-rate-in-different-states-of-the-u-s">Analysis of the Opioid Overdose Death Rate in Different States of the U.S.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-analysis">Initial Analysis:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-average-gdp-for-each-state-over-2010-2014">Visualization of Average GDP for Each State over 2010-2014:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-minimum-median-and-maximum-avg-gdp-among-states-over-2010-to-2014">Find the minimum, median, and maximum avg GDP among states over 2010 to 2014:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-of-the-highest-average-gdp-state-and-the-lowest-average-gdp-state">Visualization of the Highest Average GDP State and the Lowest Average GDP State:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-highest-average-gdp-state-vs-lowest-average-gdp-state">Hypothesis Testing: Highest average GDP state vs. Lowest average GDP state:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rough-conclusion">Rough Conclusion:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-analysis">Extended Analysis:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-high-average-gdp-states-vs-low-average-gdp-states">Hypothesis Testing: High average GDP states vs. Low average GDP states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-conclusion">Final Conclusion:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contributions">Author Contributions</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jennifer, Yi, Irene, Zac
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
