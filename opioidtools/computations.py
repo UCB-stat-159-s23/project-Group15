@@ -4,6 +4,17 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 import scipy.stats
 
+def to_numeric(df, col_name):
+    """converts column of dataframe to numeric
+    Parameters
+    ----------
+    df: dataframe
+        The dataframe containing the column to convert 
+    col_name: str
+        The column to convert to numeric
+    """
+    return pd.to_numeric(df[col_name])
+
 def cal_print_min_median_max_gdp(df):
     """returns the states with the minimum, median, and maximum GDP in & the values
     Parameters
